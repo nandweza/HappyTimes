@@ -14,6 +14,8 @@ html {
 
 body {
     color: var(--main-white);
+    padding: 0;
+    margin: 0;
 }
 
 li {
@@ -41,6 +43,7 @@ header {
     justify-content: space-between;
     position: fixed;
     width: 100vw;
+    padding-top: 25px;
 }
 
 header .navbar {
@@ -61,9 +64,43 @@ header .navbar {
     background-color: rgb(37, 37, 37);
 }
 
-footer {
+.home p {
+    font-size: 2.8rem;
+    font-style: italic;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.footer {
     text-align: center;
     font-size: 1.5rem;
     background-color: var(--main-black);
-    height: 20%
 }
+
+/* about section */
+.about {
+    background-color: var(--main-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* end about section */
+
+/* products section */
+
+/* end product section */
+
+/* blog section */
+
+/* end blog section */
+
+/* contact sectio */
+
+.contact {
+    background-color: var(--main-black);
+    height: 100vh;
+    width: 100vw;
+}
+
+/* end contact section */

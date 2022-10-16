@@ -1,10 +1,10 @@
 const express = require('express');
-const homeRoute = require('./routes/home'); 
+const homeRoute = require('./routes/home');
 
 // express app
 const app = express();
 
-const port = 4000;
+const port = 4001;
 const hostname = "localhost";
 
 //register view engine

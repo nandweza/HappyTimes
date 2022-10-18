@@ -2,11 +2,20 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
     <body>
-        <%- include('./partials/header.ejs') %>
+        <%- include('./partials/nav.ejs') %>
 
-        <main class="blog">
-            
-        </main>
+        <div class="blog content">
+            <div class="main">
+                <div class="headtext">
+                    <h2>Happy Times Blog</h2>
+                    <p>Elevating your happiness regularly...</p>
+                </div>
+                <div class="blog-btn">
+                    <input type="button" value="Create Blog Post" class="btns">
+                    <input type="button" value="All Articles" class="btns">
+                </div>
+            </div>
+        </div>
 
         <%- include('./partials/footer.ejs') %>
     </body>

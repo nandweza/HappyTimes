@@ -238,10 +238,81 @@ form #body {
 
 /* contact section */
 
-.contact {
+.contact-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: var(--main-black);
-    height: 100vh;
+    height: auto;
     width: 100vw;
+}
+
+.contact-main h2 {
+    font-size: 3rem;
+    margin-bottom: 100px;
+}
+
+.contact-main .form-row{
+    margin-bottom: 150px;
+    display: flex;
+}
+
+.contact-main .form-card {
+    background-color: gray;
+    width: 800px;
+    height: 400px;
+    border-radius: 5px;
+}
+
+.contact-main .form-card form {
+    text-align: center;
+    margin-top: 40px;
+}
+
+input[type=text], textarea {
+    width: 90%;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+input[type=email], textarea {
+    width: 90%;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+input[type=tel], textarea {
+    width: 90%;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+input[type=button] {
+    width: 20%;
+    padding: 12px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.row-loc {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
 }
 
 /* end contact section */

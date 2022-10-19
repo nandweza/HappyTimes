@@ -4,19 +4,40 @@
     <body>
         <%- include('./partials/nav.ejs') %>
 
-        <div class="contact content">
-            <h2>Contact Us</h2>
-            <div class="row">
-                <div class="col1">
-                    <p>location...</p>
+        <div class="contact">
+            <div class="contact-main">
+                <h2>Cet in touch with us.</h2>
+                <div class="form-row">
+                    <div class="form-card">
+                        <form action="" method="post" class="form">
+                            <input type="text" name="Name" id="name" placeholder="Name">
+                            <br>
+                            <input type="email" name="Email" id="email" placeholder="Email">
+                            <br>
+                            <input type="tel" name="Phone number" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone number">
+                            <br>
+                            <input type="text" name="subject" id="subject" placeholder="Subject">
+                            <br>
+                            <textarea id="txt" col="20" row="15" placeholder="Type here.."></textarea>
+                            <br>
+                            <input type="button" value="Send message">
+                        </form>
+                    </div>
                 </div>
-                <div class="col2">
-                    <form action="" method="post" class="">
-                        <input type="text" value="name" placeholder="Enter your name" id="name">
-                        <input type="email" value="email" placeholder="Enter your Email" id="email">
-                        <input type="text" value="subject" placeholder="Subject" id="subject">
-                        <textarea id="txt" col="10" row="7" placeholder="Type here.."></textarea>
-                    </form>
+                <div class="row-loc">
+                    <p>location...</p>
+                    <div class="column">
+                        <div class="card">
+                            <img src="" alt="map">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <h2>Kikuube District</h2>
+                            <i class="fa fa-map-marker" style="font-size: 20px;"></i><P>Kyangwali Refugee Settlement</P>
+                            <i class="fa fa-envelope" style="font-size: 20px;"></i><p>happytimesinvestmentsltd@gmail.com</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

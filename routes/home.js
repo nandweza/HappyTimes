@@ -1,26 +1,31 @@
 const router = require('express').Router();
 
-//display the home page...
+//get the home page...
 router.get('/', (req, res) => {
     res.render('index.ejs');
 });
 
-//display about page
+//get about page
 router.get('/about-us', (req, res) => {
     res.render('about.ejs');
 });
 
-//display product page
+//get product page
 router.get('/products', (req, res) => {
     res.render('products.ejs');
 });
 
-//display blog page
+//get blog page
 router.get('/blog', (req, res) => {
     res.render('blog.ejs');
 });
 
-//display contact page
+//get create blog page
+router.get('/createBlog', (req, res) => {
+    res.render('createBlog.ejs');
+});
+
+//get contact page
 router.get('/contact', (req, res) => {
     res.render('contact.ejs');
 });

@@ -20,7 +20,7 @@ body {
     color: var(--main-white);
     padding: 0;
     margin: 0 auto;
-    font-family: 'Noto Serif', serif;
+    font-family: 'poppins', serif;
     width: 100vw;
 }
 
@@ -130,13 +130,16 @@ footer .connect li {
 
 
 /* about section */
+
 .about {
-    position: relative;
-    background-color: var(--main-black);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color: var(--main-white);
+    background-color: rgb(37, 37, 37);
 }
 
 /* end about section */
@@ -162,8 +165,73 @@ footer .connect li {
 }
 
 .headtext {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     text-align: center;
+}
+
+.headtext h2 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.headtext p {
+    font-size: 2rem;
+    font-weight: 200;
+    font-style: italic;
+    font-family: 'Alegreya', serif;
+}
+
+@media (max-width: 500px) {
+    .headtext h2 {
+        font-size: 2rem;
+    }
+
+    .headtext p {
+        font-size: 1.3rem;
+    }
+}
+
+.blog-btn {
+    text-align: center;
+}
+
+.blog-btn .btns {
+    padding: 10px;
+    width: 200px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* create blog section */
+.create-blog{
+    margin: 20px;
+    background-color: var(--main-white);
+}
+
+.create-blog-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-blog-form form {
+    text-align: center;
+}
+
+form .line {
+    border: none;
+}
+
+form #title {
+    font-size: 4rem;
+    width: 90%;
+}
+
+form #body {
+    font-size: 1.8rem;
 }
 
 /* end blog section */

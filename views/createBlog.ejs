@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <div class="create-blog">
+            <div class="back">
+                <i class="fa fa-arrow-left" style="font-size: 25px; color: black;"><a href="/blog"></a></i>
+            </div>
+            <div class="create-blog-form">
+                <form action="/blog" method="post">
+                    <input type="text" id="title" class="line" name="title" placeholder="Title" required>
+                    <br>
+                    <br>
+                    <input type="file" id="image" class="line" name="image">
+                    <br>
+                    <br>
+                    <textarea id="body" class="line" name="body" placeholder="Write your story..." cols="90%" rows="50%" required></textarea>
+                    <br>
+                    <br>
+                    <input type="button" value="Publish">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

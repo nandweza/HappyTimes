@@ -198,10 +198,15 @@ footer p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
     color: var(--main-white);
     background-color: rgb(37, 37, 37);
+    margin-top: 700px;
+}
+
+.about-main {
+    width: 100vw;
+    height: auto;
+    margin-top: 700px;
 }
 
 /* end about section */
@@ -219,6 +224,8 @@ footer p {
     width: 100vw;
     height: 100vh;
     color: var(--main-white);
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1UF5UCp0U79QDCQmgL-vfJ5KEa_T1R0gWIg&usqp=CAU");
+    background-size: cover;
     background-color: rgb(37, 37, 37);
 }
 .main {
@@ -305,14 +312,15 @@ form #body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--main-black);
+    background: linear-gradient(45deg, orangered, orange);
     height: auto;
     width: 100vw;
 }
 
 .contact-main h2 {
     font-size: 3rem;
-    margin-bottom: 100px;
+    margin-top: 200px;
+    margin-bottom: 20px;
 }
 
 .contact-main .form-row{
@@ -370,11 +378,29 @@ input[type=button] {
 }
 
 .row-loc {
-    display: flex;
+    content: "";
+    display: table;
+    clear: both;
 }
 
-.column {
-    flex: 50%;
+.column-map {
+    float: left;
+    width: 40%;
+}
+
+.column-loc {
+    float: right;
+    width: 30%;
+}
+
+.column-loc h3 {
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.column-loc p {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
 }
 
 /* end contact section */

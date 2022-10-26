@@ -1,53 +1,40 @@
 const express = require('express');
-const mysql = require('mysql');
-const homeRoute = require('./routes/home');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+const dotenv = require('dotenv');
+const appRouter = require('./Routes/appRouter');
 
 // express app
 const app = express();
 
-const port = 4001;
-const hostname = "localhost";
+const port = 4000;
+dotenv.config();
 
-//mysql db
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "allan",
-    database: "happytimes",
-    charset: "utf8mb4_bin"
-});
-
-db.connect(err => {
-    if (err) {
-        throw err;
-    }
-    console.log("DB Connected!");
-});
-
-//create DB
-app.get('/createdb', (req, res) => {
-    let sql = "CREATE DATABASE happytimes";
-
-    db.query(sql, (err) => {
-        if (err) {
-            throw err;
-        }
-        res.send("Database created!");
-    });
-});
+//mongodb connection
+mongoose.connect(process.env.MONGO_URL)
+.then(() => console.log("DB Connection successfully!"))
+.catch((err) => console.log(err));
 
 //register view engine
 app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 //middleware and static files
 app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use((req, res, next) => {
+  res.locals.path = req.path;
+  next();
+});
 
-app.use('/', homeRoute);
-app.use('/about-us', homeRoute);
-app.use('/products', homeRoute);
-app.use('/blog', homeRoute);
-app.use('/contact', homeRoute);
-app.use('/createBlog', homeRoute);
+app.use('/', appRouter);
+app.use('/about-us', appRouter);
+app.use('/products', appRouter);
+app.use('/blog', appRouter);
+app.use('/contact', appRouter);
+app.use('/createBlog', appRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on Port: ${port}`);

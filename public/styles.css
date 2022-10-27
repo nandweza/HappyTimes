@@ -213,6 +213,89 @@ footer p {
 
 /* products section */
 
+.products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100vw;
+    height: auto;
+}
+
+.products-main {
+    margin-top: 120px;
+}
+
+.product h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.soap-card {
+    padding: 20px;
+    background-color: rgb(20, 30, 40);;
+}
+
+.soap-card h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.soap-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 100%;
+    grid-gap: 4rem;
+    margin: 0 auto;
+}
+
+.soap {
+    background-color: white;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.soap > img {
+    width: 200px;
+}
+
+.soap p {
+    font-size: 1.2rem;
+    color: black;
+    font-weight: 400;
+    background-color: gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+/* service section */
+.services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: 100px;
+}
+.service-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+    grid-gap: 4rem;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    padding: 20px;
+}
+
+.service {
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    text-align: center;
+    background-color: gray;
+}
+
 /* end product section */
 
 /* blog section */

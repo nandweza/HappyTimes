@@ -197,18 +197,110 @@ footer p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     color: var(--main-white);
     background-color: rgb(37, 37, 37);
-    margin-top: 700px;
+    width: 100vw;
 }
 
 .about-main {
-    width: 100vw;
-    height: auto;
-    margin-top: 700px;
+    margin: 100px 50px 0px 50px;
 }
 
+.about-main h2 {
+    font-size: 2.5rem;
+}
+
+.abt {
+    display: flex;
+}
+
+.desc {
+    flex: 40%;
+    padding: 20px;
+    border: 2px solid white;
+}
+
+.pic {
+    flex: 80%;
+}
+
+.pic img {
+    height: 100%;
+    width: 100%;
+}
+
+.team-header {
+    margin-top: 80px;
+}
+
+.team {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 100%;
+    grid-gap: 4rem;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.person {
+    text-align: center;
+}
+
+.person img {
+    border-radius: 50%;
+    border: 2px solid black;
+    width: 170px;
+}
+
+.mgt-team-header {
+    margin-top: 80px;
+}
+
+.mgt {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.partners {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 4rem;
+}
+
+.logo-p {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 100px;
+}
+
+.logo-p img {
+    width: 200px;
+    height: 200px;
+}
+
+.contact-us {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-us h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+ 
+}
+
+.contact-us h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.contact-us p {
+    font-size: 1.8rem;
+    font-weight: lighter;
+    margin: 0;
+}
 /* end about section */
 
 /* products section */

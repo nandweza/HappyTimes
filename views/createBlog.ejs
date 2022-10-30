@@ -7,17 +7,18 @@
                 <i class="fa fa-arrow-left" style="font-size: 25px; color: black;"><a href="/blog"></a></i>
             </div>
             <div class="create-blog-form">
-                <form action="/blog" method="post">
+                <form action="/createBlog" method="POST">
+                    <button type="submit">Publish</button>
                     <input type="text" id="title" class="line" name="title" placeholder="Title" required>
                     <br>
                     <br>
-                    <input type="file" id="image" class="line" name="image">
+                    <input type="file" id="image" class="line" name="img">
                     <br>
                     <br>
-                    <textarea id="body" class="line" name="body" placeholder="Write your story..." cols="90%" rows="50%" required></textarea>
+                    <textarea id="body" class="line" name="content" placeholder="Write your story..." cols="90%" rows="50%" required>
+                    </textarea>
                     <br>
                     <br>
-                    <input type="button" value="Publish">
                 </form>
             </div>
         </div>

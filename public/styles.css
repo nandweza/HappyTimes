@@ -221,6 +221,16 @@ footer p {
     border: 2px solid white;
 }
 
+.abt-btn {
+    width: auto;
+    text-align: center;
+}
+
+#abt-btn {
+    width: 150px;
+    padding: 2px 20px;
+}
+
 .pic {
     flex: 80%;
 }

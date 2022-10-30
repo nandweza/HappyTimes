@@ -4,40 +4,71 @@ const Blog = require("../models/blog");
 
 //get the home page
 router.get('/', (req, res) => {
-    res.render('index.ejs');
+    res.render('index');
 });
 
 //get about page
 router.get('/about-us', (req, res) => {
-    res.render('about.ejs');
+    res.render('about');
 });
 
 //get product page
 router.get('/products', (req, res) => {
-    res.render('products.ejs');
+    res.render('products');
 });
 
 //get blog page
 router.get('/blog', (req, res) => {
-    res.render('blog.ejs');
+    res.render('blog');
 });
 
 //get create blog page
 router.get('/createBlog', (req, res) => {
-    res.render('createBlog.ejs');
+    res.render('createBlog');
 });
+
+//get all blogs page
+router.get('/allBlogs', (req, res) => {
+    res.render('allBlogs');
+});
+
 
 //create blog post
-router.post("/createBlog", async (req, res) => {
-    const newBlog = new Blog(req.body);
+router.post("/createBlog", (req, res) => {
+    const { title, img, content} = req.body;
 
-    try {
-        const savedBlog = await newBlog.save();
-        res.status(201).json("Blog created!!!");
-    } catch (err) {
-        res.status(500).json(err);
+    if (!title || !img || !content) {
+        return res.redirect("/createBlog");
     }
-});
+
+    const newBlog = new Blog({ title, img, content });
+
+    newBlog
+        .save()
+        .then(() => {
+            console.log("Blog created!!!");
+            res.redirect('/blog');
+        })
+        .catch ((err) => console.log(err));
+    });
+//router.post("/createBlog", async(req, res) => {
+//    const title = req.body.blogTitle;
+//    const  img = req.body.blogImage;
+//    const  body = req.body.blogBody;
+//  
+//    if (title !== "" && description !== "") {
+//		posts = new blogPost({
+//			blogtitle: req.body.blogTitle,
+//            blogimg: req.body.blogImage,
+//			blogbody: req.body.blogBody,
+//		});
+//		await posts.save();
+//		res.redirect(`/blog/${posts.blogtitle}`);
+//	}
+//	else {
+//		res.render("createBlog", { title: title, img: img, body: body });
+//	}
+//  });
 
 //update blog
 router.put('/createBlog/:id', async (req, res) => {
@@ -62,13 +93,9 @@ router.delete('/createBlog/:id', async (req, res) => {
 });
 
 //get all blogs
-router.get("/allblogs", async (req, res) => {
-    try {
-        const blogs = await Blog.find();
-        res.status(200).json(blogs);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+router.get("/allBlogs", (req, res) => {
+    const allBlogs = new Blog.find();
+    res.render("allBlogs", { blogs: allBlogs });
 });
 
 //find a blog by id
@@ -83,7 +110,7 @@ router.get('/allBlogs/:id', async (req, res) => {
 
 //get contact page
 router.get('/contact', (req, res) => {
-    res.render('contact.ejs');
+    res.render('contact');
 });
 
 module.exports = router;

@@ -41,17 +41,21 @@ a:hover {
     color: blue;
 }
 
-nav {
+/*nav {
     /*background: linear-gradient(var(--main-orange) 0%, rgb(238, 82, 25) 30%, var(--main-black) 100%);*/
-    display: flex;
+    /*display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 60px;
     padding-top: 10px;
     position: fixed;
     width: 100vw;
     margin: 0;
     z-index: 1;
-    margin-right: 50px;
+}*/
+nav {
+    position: fixed;
+    top: 20px;
 }
 
 nav ul {
@@ -60,7 +64,8 @@ nav ul {
     padding: 0;
     overflow: hidden;
     margin-top: 20px;
-    margin-right: 40px;
+    margin-left: 0px;
+    
   }
   
   nav li {
@@ -87,7 +92,11 @@ nav ul {
   }
 
 nav .logo {
-    margin-right: 590px;
+    margin-right: 120px;
+}
+
+nav .login {
+    margin-left: 200px;
 }
 
 .dropdown {

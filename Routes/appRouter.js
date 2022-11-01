@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Blog = require("../models/blog");
 
+//login page
+router.get('/login', (req, res) => {
+    res.render('login');
+});
+
 //get the home page
 router.get('/', (req, res) => {
     res.render('index');
@@ -37,7 +42,7 @@ router.get('/allBlogs', (req, res) => {
 router.post("/createBlog", (req, res) => {
     const { title, img, content} = req.body;
 
-    if (!title || !img || !content) {
+    if (!title || !content) {
         return res.redirect("/createBlog");
     }
 
@@ -47,7 +52,7 @@ router.post("/createBlog", (req, res) => {
         .save()
         .then(() => {
             console.log("Blog created!!!");
-            res.redirect('/blog');
+            res.redirect('/allBlogs');
         })
         .catch ((err) => console.log(err));
     });
@@ -93,9 +98,9 @@ router.delete('/createBlog/:id', async (req, res) => {
 });
 
 //get all blogs
-router.get("/allBlogs", (req, res) => {
-    const allBlogs = new Blog.find();
-    res.render("allBlogs", { blogs: allBlogs });
+router.get("/allBlogs", async (req, res) => {
+    const allblogs = await Blog.find();
+    res.render("allBlogs", { blogs: allblogs });
 });
 
 //find a blog by id

@@ -3,13 +3,18 @@
     <%- include('./partials/head.ejs') %>
 
     <body>
-        <%- include(''./partials/nav.ejs') %>
-
-        <form action="" method="POST">
-            <legend>LOGIN</legend>
-            <input type="text" name="name" id="name" placeholder="Enter Name" required>
-            <input type="password" name="password" id="password" placeholder="Enter Password" required>
-        </form>
+        <%- include('./partials/nav.ejs') %>
+       
+        <div class="login-main">
+            <form action="/login" method="POST">
+                <legend>LOGIN</legend>
+                <input type="text" name="name" class="uname" placeholder="Username" required>
+                <br>
+                <input type="password" name="password" class="pwd" placeholder="Password" required>
+                <br>
+                <input type="button" value="Login" name="login" class="l-btn">
+            </form>
+        </div>
 
         <%- include('./partials/footer.ejs') %>
     </body>

@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Blog = require("../models/blog");
+const User = require("../models/user");
+const bcrypt = require("bcrypt");
 
-//login page
-router.get('/login', (req, res) => {
-    res.render('login');
-});
 
 //get the home page
 router.get('/', (req, res) => {
@@ -116,6 +114,63 @@ router.get('/allBlogs/:id', async (req, res) => {
 //get contact page
 router.get('/contact', (req, res) => {
     res.render('contact');
+});
+
+//login page
+router.get('/login', (req, res) => {
+    res.render('login');
+});
+
+// register admin
+router.post("/register", async (req, res) => {
+    const salt = await bcrypt.genSalt(10);
+    const newUser = new User({
+        username: req.body.username,
+        password: (await bcrypt.hash(req.body.password, salt)),
+    });
+
+    try {
+        const user = await newUser.save();
+        res.status(201).json(user);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//login admin
+router.post('/login', async(req, res) => {
+    const user = await User.findOne({ username: req.body.username });
+
+    if (user) {
+        const bytes = bcrypt.compare(user.password, req.body.password);
+
+        if (!bytes) {
+            res.status(400).json("Wrong password or Username");
+        } else {
+            if (!user.isAdmin) {
+                console.log("Unauthorized User");
+                res.redirect("/");
+            } else {
+                console.log("Welcome back!");
+                res.redirect("/admin");
+            }
+        }
+    } else {
+        res.status(401).json("You should be an Admin!");
+    }
+});
+
+// admin page
+router.get("/admin", (req, res) => {
+    if (req.admin) {
+        res.render("admin");
+    }
+});
+
+//logout admin
+router.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
 });
 
 module.exports = router;

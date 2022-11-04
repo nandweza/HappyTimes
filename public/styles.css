@@ -598,3 +598,48 @@ input[type=button] {
 }
 
 /* end contact section */
+
+/* login section */
+
+.login-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*margin-top: 200px;
+    margin-bottom: 150px;*/
+    height: 100vh;
+}
+
+.login-main form {
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 70px;
+    text-align: center;
+    background-color: gray;
+    opacity: 60%;
+}
+
+.login-main form legend {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.login-main form .uname, .pwd {
+    width: 100%;
+    padding: 10px;
+    border: 1px double red;
+    border-radius: 5px;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+.login-main form .l-btn {
+    width: 50%;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px double red;
+    border-radius: 5px;
+}
+
+/* end login section */

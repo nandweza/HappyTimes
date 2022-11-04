@@ -3,10 +3,11 @@
     <%- include('./partials/head.ejs') %>
 
     <body>
-        <%- include('./partials/nav.ejs') %>
-       
         <div class="login-main">
             <form action="/login" method="POST">
+                <div class="back">
+                    <a href="/"></a><i class="fa fa-home" style="font-size: 50px;"></i></a>
+                </div>
                 <legend>LOGIN</legend>
                 <input type="text" name="name" class="uname" placeholder="Username" required>
                 <br>
@@ -15,7 +16,5 @@
                 <input type="button" value="Login" name="login" class="l-btn">
             </form>
         </div>
-
-        <%- include('./partials/footer.ejs') %>
     </body>
 </html>

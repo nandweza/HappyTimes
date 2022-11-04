@@ -625,21 +625,27 @@ input[type=button] {
     font-size: 1.8rem;
 }
 
+.login-main form .back {
+    margin-left: -40px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 .login-main form .uname, .pwd {
     width: 100%;
     padding: 10px;
-    border: 1px double red;
-    border-radius: 5px;
+    border: 1px double orangered;
+    border-radius: 10px;
     margin-top: 10px;
     resize: vertical;
 }
 
 .login-main form .l-btn {
-    width: 50%;
+    width: 100%;
     padding: 5px;
     margin-top: 10px;
-    border: 1px double red;
-    border-radius: 5px;
+    border: 1px double orangered;
+    border-radius: 20px;
 }
 
 /* end login section */

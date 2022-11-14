@@ -54,24 +54,6 @@ router.post("/createBlog", (req, res) => {
         })
         .catch ((err) => console.log(err));
     });
-//router.post("/createBlog", async(req, res) => {
-//    const title = req.body.blogTitle;
-//    const  img = req.body.blogImage;
-//    const  body = req.body.blogBody;
-//  
-//    if (title !== "" && description !== "") {
-//		posts = new blogPost({
-//			blogtitle: req.body.blogTitle,
-//            blogimg: req.body.blogImage,
-//			blogbody: req.body.blogBody,
-//		});
-//		await posts.save();
-//		res.redirect(`/blog/${posts.blogtitle}`);
-//	}
-//	else {
-//		res.render("createBlog", { title: title, img: img, body: body });
-//	}
-//  });
 
 //update blog
 router.put('/createBlog/:id', async (req, res) => {
@@ -121,7 +103,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// register admin
+// register user
 router.post("/register", async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const newUser = new User({
@@ -137,34 +119,29 @@ router.post("/register", async (req, res) => {
     }
 });
 
-//login admin
-router.post('/login', async(req, res) => {
-    const user = await User.findOne({ username: req.body.username });
+//login user
+router.post("/login", async (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
 
+    const user = await User.findOne({ username: username });
     if (user) {
-        const bytes = bcrypt.compare(user.password, req.body.password);
-
-        if (!bytes) {
-            res.status(400).json("Wrong password or Username");
-        } else {
-            if (!user.isAdmin) {
-                console.log("Unauthorized User");
-                res.redirect("/");
-            } else {
-                console.log("Welcome back!");
-                res.redirect("/admin");
-            }
-        }
-    } else {
-        res.status(401).json("You should be an Admin!");
-    }
-});
-
+      // check user password with hashed password stored in the database
+      const validPassword = await bcrypt.compare(password, user.password);
+      if (validPassword) {
+        return res.redirect('/admin');
+        console.log("login successfully");
+        //res.status(200).json({ message: "Valid password" });
+      } else {
+        res.redirect("/login");
+        //res.status(400).json({ error: "Invalid Password" });
+      }
+    } 
+  });
+        
 // admin page
 router.get("/admin", (req, res) => {
-    if (req.admin) {
-        res.render("admin");
-    }
+    res.render("admin");
 });
 
 //logout admin

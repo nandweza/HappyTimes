@@ -37,6 +37,7 @@ app.use('/contact', appRouter);
 app.use('/createBlog', appRouter);
 app.use('/allBlogs', appRouter);
 app.use('/login', appRouter);
+app.use('/admin', appRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on Port: ${port}`);

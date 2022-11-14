@@ -99,6 +99,13 @@ nav .login {
     margin-left: 200px;
 }
 
+nav .langs {
+    border: 2px solid red;
+    border-radius: 15px;
+    width: 100px;
+    height: 20px;
+}
+
 .dropdown {
     display: none;
 }
@@ -145,7 +152,7 @@ nav .login {
     width: 100vw;
     height: 100vh;
     color: var(--main-black);
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg");
+    background-image: url("../HappyTimes/public/images/happy.jpg");
     background-size: cover;
 }
 
@@ -418,7 +425,7 @@ footer p {
     width: 100vw;
     height: 100vh;
     color: var(--main-white);
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1UF5UCp0U79QDCQmgL-vfJ5KEa_T1R0gWIg&usqp=CAU");
+    background-image: url("https://drive.google.com/file/d/1PAmHEFWnDlqTcC5JveRyW3eaL0EzH3qv/view?usp=sharing");
     background-size: cover;
     background-color: rgb(37, 37, 37);
 }
@@ -638,6 +645,7 @@ input[type=button] {
     border-radius: 10px;
     margin-top: 10px;
     resize: vertical;
+    font-size: 1.8rem;
 }
 
 .login-main form .l-btn {
@@ -646,6 +654,84 @@ input[type=button] {
     margin-top: 10px;
     border: 1px double orangered;
     border-radius: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
 }
 
 /* end login section */
+
+/* Admin page */
+.sidebar {
+    color: black;
+    width: 160px;
+    flex: 1;
+    height: calc(100vh - 50px);
+    background-color: rgb(251, 251, 255);
+    position: fixed;
+    top: 50px;
+}
+
+.sidebar .sidebar-h {
+    font-size: 20px;
+    text-align: center;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.sidebar a {
+    color: black;
+}
+
+.sidebar .client {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: gray;
+    padding: 3px;
+}
+
+.topbar-a {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: linen;
+    width: 100%;
+    color:rgb(20, 30, 40);
+    height: 50px;
+    opacity: 96%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.topbar-a h1 {
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 100px;
+    font-size: 20px;
+}
+
+.topbar-a .icons {
+    font-size: 20px;
+    padding-left: 600px;
+    cursor: pointer;
+    color:rgb(20, 19, 19);
+}
+
+.topbar-a .icons .fa {
+    padding: 10px;
+}
+
+.admin {
+    margin: 160px;
+}
+
+.admin .wrapper {
+    background-color: aliceblue;
+}
+
+.admin .wrapper .card .content {
+    width: 90%;
+    height: 400px;
+    background-color: #f9f9f9;
+}
+/* End Admin page*/

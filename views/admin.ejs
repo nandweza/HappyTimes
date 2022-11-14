@@ -3,18 +3,59 @@
     <%- include('./partials/head.ejs') %>
 
     <body>
+        <div class="topbar-a">
+          <div class="cname">
+            <h1>Happy Times Investments Ltd</h1>
+          </div>
+          <div class="icons">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <i class="fa fa-bell fa-inverse" style="color:rgb(20, 19, 19);"></i>
+          </div>
+        </div>
         <nav class="sidebar">
             <ul>
                 <li>
-                    <a href="/views/admin.ejs">Home</a>
-                    <a href="/views/createBlog.ejs">Post</a>
-                    <a href="/views/allBlogs.ejs">Blog</a>
-                    <a href="/addProducts">Products</a>
+                    <div class="sidebar-h">DashBoard</div>
+                    <a href="/">
+                      <div class="client">Go to Page</div>
+                    </a>
+                    <a href="/admin">
+                      <i class="fa fa-home"></i>
+                      <div>Home</div>
+                    </a>
+                    <a href="/analytics">
+                      <i class="fa fa-bar-chart"></i>
+                      <div>Analytics</div>
+                    </a>
+                    <a href="/transactions">
+                      <i class="fa fa-cc-discover"></i>
+                      <div>Transactions</div>
+                    </a>
+                    <a href="/report">
+                      <i class="fa fa-file-audio-o"></i>
+                      <div>Report</div>
+                    </a>
+                    <a href="/createBlog">
+                      <i class="fa fa-sticky-note-o"></i>
+                      <div>Post</div>
+                    </a>
+                    <a href="/allBlogs">
+                      <i class="fas fa-blog"></i>
+                      <div>Blog</div>
+                    </a>
+                    <a href="/addProducts">
+                      <i class="fab fa-product-hunt"></i>
+                      <div>Products</div>
+                    </a>
                 </li>
             </ul>
         </nav>
-        <main>
-            <h1>Welcome!</h1>
+        <main class="admin">
+            <div class="wrapper">
+              <div class="card">
+                <div class="content1"
+              </div>
+            </div>
         </main>
     </body>
 </html>

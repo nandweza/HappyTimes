@@ -3,11 +3,13 @@ const router = express.Router();
 const Blog = require("../models/blog");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const images = [{image:"../public/images/happy.jpg"}];
+const imageb = [{image:"../public/images/blog.jpg"}]
 
 
 //get the home page
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {images: images});
 });
 
 //get about page
@@ -22,7 +24,7 @@ router.get('/products', (req, res) => {
 
 //get blog page
 router.get('/blog', (req, res) => {
-    res.render('blog');
+    res.render('blog', {imageb: imageb});
 });
 
 //get create blog page

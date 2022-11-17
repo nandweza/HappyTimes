@@ -54,8 +54,9 @@ a:hover {
     z-index: 1;
 }*/
 nav {
+    background: linear-gradient(var(--main-orange) 0%, rgb(160, 67, 34) 30%, var(--main-black) 100%);
+    width: 100%;
     position: fixed;
-    top: 20px;
 }
 
 nav ul {
@@ -151,8 +152,8 @@ nav .langs {
     align-items: left;
     width: 100vw;
     height: 100vh;
-    color: var(--main-black);
-    background-image: url("../HappyTimes/public/images/happy.jpg");
+    color: var(--main-white);
+    background-image: url('/images/happy.jpg');
     background-size: cover;
 }
 
@@ -181,29 +182,26 @@ nav .langs {
 }
 
 footer {
+    display: flex;
+    flex-direction: row-reverse;
     background-color: rgb(20, 30, 40);
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-size: 1rem;
 }
 
 footer .connect {
-    text-align: right;
-    margin-right: 60px;
-    margin-bottom: 40px;
-    margin-top: 30px;
+    margin-right: 50px;
 }
 
 footer .connect li {
     display: inline;
 }
 
-footer p {
-    font-size: 1.5rem;
-    text-align: left;
-    margin-left: 100px;
-    margin-bottom: 40px;
+footer .ftext {
+    font-size: 1.7rem;
     font-weight: lighter;
+    margin-right: 300px;
 }
 
 
@@ -425,17 +423,18 @@ footer p {
     width: 100vw;
     height: 100vh;
     color: var(--main-white);
-    background-image: url("https://drive.google.com/file/d/1PAmHEFWnDlqTcC5JveRyW3eaL0EzH3qv/view?usp=sharing");
+    background-image: url("/images/blog.jpg");
     background-size: cover;
     background-color: rgb(37, 37, 37);
 }
 .main {
+    margin-top: 300px;
     margin-bottom: 200px;
-    color: white;
+    color: orangered;
 }
 
 .headtext {
-    margin-bottom: 80px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
@@ -472,6 +471,24 @@ footer p {
     font-weight: 500;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.featured-blogs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 4rem;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.fblog {
+    width: 300px;
+    height: 200px;
+    background-color: var(--main-gray);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 2.5px;
 }
 
 /* create blog section */
@@ -514,6 +531,8 @@ form #body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(45deg, orangered, orange);
+    background-image: url("/images/c2.png");
+    background-size: cover;
     height: auto;
     width: 100vw;
 }

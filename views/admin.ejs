@@ -20,24 +20,31 @@
                       <div class="client">Go to Page</div>
                     </a>
                     <a href="/admin">
-                      <i class="fa fa-home"></i>
                       <div>Home</div>
                     </a>
-                    <label for="posts">Posts</label>
-                    <option value="All Posts"></option>
-                    <option value="New Post"></option>
-                    <a href="/createBlog">
-                      <i class="fa fa-sticky-note-o"></i>
-                      <div>Posts</div>
-                    </a>
-                    <a href="/addProducts">
-                      <i class="fab fa-product-hunt"></i>
-                      <div>Products</div>
-                    </a>
-                    <a href="/settings">
-                      <i class="fa fa-gear"></i>
-                      <div>Settings</div>
-                    </a>
+                    <button class="dropdown-btn">Posts
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                      <a href="#">All Posts</a>
+                      <a href="/createBlog">New Posts</a>
+                    </div>
+                    <button class="dropdown-btn">Products
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                      <a href="#">All Products</a>
+                      <a href="/addProducts">Add Product</a>
+                      <a href="#">Update</a>
+                      <a href="#">Delete</a>
+                    </div>
+                    <button class="dropdown-btn">Settings
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                      <a href="#">My Account</a>
+                      <a href="#">Logout</a>
+                    </div>
                 </li>
             </ul>
         </nav>
@@ -50,3 +57,20 @@
         </main>
     </body>
 </html>
+
+<script>
+  var dropdown = document.getElementsByClassName("dropdown-btn");
+  var i;
+
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+      } else {
+        dropdownContent.style.display = "block";
+      }
+    });
+  }
+</script>

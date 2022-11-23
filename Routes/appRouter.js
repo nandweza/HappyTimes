@@ -3,8 +3,11 @@ const router = express.Router();
 const Blog = require("../models/blog");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const isEmpty = require("is-empty");
 const images = [{image:"../public/images/happy.jpg"}];
 const imageb = [{image:"../public/images/blog.jpg"}]
+
+let blogs = [];
 
 
 //get the home page
@@ -33,8 +36,9 @@ router.get('/createBlog', (req, res) => {
 });
 
 //get all blogs page
-router.get('/allBlogs', (req, res) => {
-    res.render('allBlogs');
+router.get('/allBlogs', async (req, res) => {
+    blogs = await Blog.find();
+    res.render('allBlogs', { blogs: blogs });
 });
 
 
@@ -46,16 +50,23 @@ router.post("/createBlog", (req, res) => {
         return res.redirect("/createBlog");
     }
 
-    const newBlog = new Blog({ title, img, content });
+    const blogs = new Blog({ title, img, content });
 
-    newBlog
+    blogs
         .save()
         .then(() => {
             console.log("Blog created!!!");
-            res.redirect('/allBlogs');
+            res.redirect('/admin');
         })
         .catch ((err) => console.log(err));
     });
+
+//get all blogs
+router.get("/allBlogs/:title", async (req, res) => {
+    const blogTitle = req.params.title;
+    blogs = await Blog.find({ title: blogTitle });
+    isEmpty(blogs) ? res.redirect('/') : res.render("allBlogs", { blog: blogs });
+});
 
 //update blog
 router.put('/createBlog/:id', async (req, res) => {
@@ -78,22 +89,6 @@ router.delete('/createBlog/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-//get all blogs
-router.get("/allBlogs", async (req, res) => {
-    const allblogs = await Blog.find();
-    res.render("allBlogs", { blogs: allblogs });
-});
-
-//find a blog by id
-router.get('/allBlogs/:id', async (req, res) => {
-    try {
-        const blog = await Blog.findById(req.params.id);
-        res.status(200).json(blog);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
 
 //get contact page
 router.get('/contact', (req, res) => {

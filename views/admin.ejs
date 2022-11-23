@@ -26,7 +26,7 @@
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                      <a href="#">All Posts</a>
+                      <a href="allBlogs">All Posts</a>
                       <a href="/createBlog">New Posts</a>
                     </div>
                     <button class="dropdown-btn">Products
@@ -35,8 +35,6 @@
                     <div class="dropdown-container">
                       <a href="#">All Products</a>
                       <a href="/addProducts">Add Product</a>
-                      <a href="#">Update</a>
-                      <a href="#">Delete</a>
                     </div>
                     <button class="dropdown-btn">Settings
                       <i class="fa fa-caret-down"></i>
@@ -49,10 +47,9 @@
             </ul>
         </nav>
         <main class="admin">
-            <div class="wrapper">
-              <div class="card">
-                <div class="content1"></div>
-              </div>
+            <div class="posts-wrapper">
+              <div id="allPosts" class="allPosts"></div>
+              <div id="newPost" class="newPost"></div>
             </div>
         </main>
     </body>

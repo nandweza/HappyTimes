@@ -2,7 +2,7 @@
     <div class="top">
     </div>
     <ul>
-        <li><img class="logo" src="/logo updated.jpg" alt="logo"></li>
+        <li><img class="logo" src="/images/logo updated.jpg" alt="logo"></li>
         <li>
             <a href="/">Home</a>
         </li>
@@ -22,10 +22,14 @@
             <a href="/login" class="login">Login</a>
         </li>
         <li>
-            <select class="langs">Language:</select>
-            <select>English</select>
-            <select>French</select>
-            <select>Spanish</select>
+            <form>
+                <select class="langs" id="langs" name="langs">
+                    <option value="Language"><i class="fa-solid fa-language"></i> Language</option>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="Spanish">Spanish</option>
+                </select>
+            </form>
         </li>
     </ul>
 </nav>

@@ -6,20 +6,19 @@
     <body>
 
         <%- include('./partials/nav.ejs') %>
-        <h3>All Articles</h3>
-        <div class="container">
-            
-            <% blogs.reverse() %>
-            
-            <% blogs.forEach(blog => { %>
-                <div class="card">
-                    <dvi class="card-body">
-                        <h3 class="card-title"><%= blog.title %></h3>
-                        <p><%= blog.img %></p>
-                        <p><%= blog.content %></p>
-                    </dvi>
-                </div>
-            <%})%>
+        <div class="blogs content">
+            <div class="title-text">
+                <%= blog[0].title %>
+            </div>
+            <span>
+                <%= blog[0].createdAt.toLocaleDateString() %>
+            </span>
+            <div>
+                <%= blog[0].img %>
+            </div>
+            <p>
+                <%= blog[0].content %>
+            </p>
         </div>
 
         <%- include('./partials/footer.ejs') %>

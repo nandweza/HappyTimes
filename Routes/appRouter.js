@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const Blog = require("../models/blog");
+const Post = require("../models/post");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const isEmpty = require("is-empty");
 const images = [{image:"../public/images/happy.jpg"}];
 const imageb = [{image:"../public/images/blog.jpg"}]
 
-let blogs = [];
+let posts = [];
 
 
 //get the home page
@@ -26,65 +26,66 @@ router.get('/products', (req, res) => {
 });
 
 //get blog page
-router.get('/blog', (req, res) => {
-    res.render('blog', {imageb: imageb});
+router.get('/blog', async (req, res) => {
+    posts = await Post.find();
+    res.render('blog', {imageb: imageb, posts: posts});
 });
 
 //get create blog page
-router.get('/createBlog', (req, res) => {
-    res.render('createBlog');
+router.get('/createPost', (req, res) => {
+    res.render('createPost');
 });
 
 //get all blogs page
-router.get('/allBlogs', async (req, res) => {
-    blogs = await Blog.find();
-    res.render('allBlogs', { blogs: blogs });
-});
+//router.get('/posts', async (req, res) => {
+//    posts = await Post.find();
+//    res.render('posts', { posts: posts });
+//});
 
 
 //create blog post
-router.post("/createBlog", (req, res) => {
-    const { title, img, content} = req.body;
+router.post("/createPost", (req, res) => {
+    const { blogtitle, img, blogcontent} = req.body;
 
-    if (!title || !content) {
-        return res.redirect("/createBlog");
+    if (!blogtitle || !blogcontent) {
+        return res.redirect("/createPost");
     }
 
-    const blogs = new Blog({ title, img, content });
+    const posts = new Post({ blogtitle, img, blogcontent });
 
-    blogs
+    posts
         .save()
         .then(() => {
-            console.log("Blog created!!!");
+            console.log("Article created!!!");
             res.redirect('/admin');
         })
         .catch ((err) => console.log(err));
     });
 
 //get all blogs
-router.get("/allBlogs/:title", async (req, res) => {
-    const blogTitle = req.params.title;
-    blogs = await Blog.find({ title: blogTitle });
-    isEmpty(blogs) ? res.redirect('/') : res.render("allBlogs", { blog: blogs });
+router.get("/posts/:title", async (req, res) => {
+    const blogTitle = req.params.blogtitle;
+    posts = await Post.find({ blogtitle: blogTitle });
+    isEmpty(posts) ? res.redirect('/') : res.render("posts", { post: posts });
 });
 
 //update blog
-router.put('/createBlog/:id', async (req, res) => {
+router.put('/createPost/:id', async (req, res) => {
     try {
-        const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, {
+        const updatedPost = await Post.findByIdAndUpdate(req.params.id, {
             $set: req.body,
         }, { new: true });
-        res.status(200).json(updatedBlog);
+        res.status(200).json(updatedPost);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
 //delete blog
-router.delete('/createBlog/:id', async (req, res) => {
+router.delete('/createPost/:id', async (req, res) => {
     try {
-        const deletedBlog = await Blog.findByIdAndDelete(req.params.id);
-        res.status(200).json("Blog deleted successfully!!");
+        const deletedPost = await Post.findByIdAndDelete(req.params.id);
+        res.status(200).json("Post deleted successfully!!");
     } catch (err) {
         res.status(500).json(err);
     }

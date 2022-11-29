@@ -16,19 +16,21 @@
                 <div class="box featured-blogs">
                     <% posts.forEach((post) => { %>
                     <div class="single-blog fblog">
-                        <div class="title">
-                            <%= post.blogtitle %>
-                        </div>
                         <span>
                             <%= post.createdAt.toLocaleDateString(); %>
                         </span>
+                        <br>
+                        <br>
+                        <div class="title">
+                            <%= post.blogtitle %>
+                        </div>
                         <div class="img">
                             <%= post.img %>
                         </div>
                         <div class="desc">
                             <p>
                                 <%= post.blogcontent.substring(0, 100) + "..." %>
-                                <a href="/posts/<%= post.blogtitle %>">Read more.</a>"
+                                <a href="/posts" style="color: red;">Read more.</a>"
                             </p>
                         </div>
                     </div>

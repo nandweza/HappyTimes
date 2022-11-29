@@ -4,10 +4,24 @@ const Post = require("../models/post");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const isEmpty = require("is-empty");
+const fs = require("fs");
+const path = require("path");
+const multer = require("multer");
 const images = [{image:"../public/images/happy.jpg"}];
 const imageb = [{image:"../public/images/blog.jpg"}]
 
 let posts = [];
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './uploads');
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now())
+    }
+});
+
+const upload = multer({ storage: storage });
 
 
 //get the home page
@@ -36,22 +50,22 @@ router.get('/createPost', (req, res) => {
     res.render('createPost');
 });
 
-//get all blogs page
-//router.get('/posts', async (req, res) => {
-//    posts = await Post.find();
-//    res.render('posts', { posts: posts });
-//});
-
-
 //create blog post
-router.post("/createPost", (req, res) => {
-    const { blogtitle, img, blogcontent} = req.body;
+router.post("/createPost", upload.single('image'), (req, res) => {
+    const obj = {
+        blogtitle: req.body.blogtitle,
+        blogcontent: req.body.blogcontent,
+        img: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.originalname)),
+            contentType: 'image/png'
+        }
+    }
 
     if (!blogtitle || !blogcontent) {
         return res.redirect("/createPost");
     }
 
-    const posts = new Post({ blogtitle, img, blogcontent });
+    const posts = new Post({ obj });
 
     posts
         .save()
@@ -62,8 +76,8 @@ router.post("/createPost", (req, res) => {
         .catch ((err) => console.log(err));
     });
 
-//get all blogs
-router.get("/posts/:title", async (req, res) => {
+//get single blog post
+router.get("/posts", async (req, res) => {
     const blogTitle = req.params.blogtitle;
     posts = await Post.find({ blogtitle: blogTitle });
     isEmpty(posts) ? res.redirect('/') : res.render("posts", { post: posts });

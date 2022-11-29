@@ -2,24 +2,66 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
     <body>
-        <div class="create-blog">
-            <div class="back">
-                <i class="fa fa-arrow-left" style="font-size: 25px; color: black;"><a href="/admin"></a></i>
+        <div class="topbar-a">
+            <div class="cname">
+              <h1>Happy Times Investments Ltd</h1>
             </div>
-            <div class="create-blog-form">
-                <form action="/createPost" method="POST">
-                    <button type="submit">Publish</button>
-                    <input type="text" id="title" class="line" name="blogtitle" placeholder="Title" required>
-                    <br>
-                    <br>
-                    <input type="file" id="image" class="line" name="img">
-                    <br>
-                    <br>
-                    <textarea id="body" class="line" name="blogcontent" placeholder="Write your story..." cols="90%" rows="50%" required>
-                    </textarea>
-                    <br>
-                    <br>
-                </form>
+            <div class="icons">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <i class="fa fa-bell fa-inverse" style="color:rgb(20, 19, 19);"></i>
+            </div>
+        </div>
+        <nav class="sidebar">
+            <ul>
+                <li>
+                    <div class="sidebar-h">DashBoard</div>
+                    <a href="/">
+                      <div class="client">Go to Page</div>
+                    </a>
+                    <a href="/admin">
+                      <div>Home</div>
+                    </a>
+                    <button class="dropdown-btn">Posts
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                      <a href="/posts">All Posts</a>
+                      <a href="/createPost">New Posts</a>
+                    </div>
+                    <button class="dropdown-btn">Products
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                      <a href="#">All Products</a>
+                      <a href="/addProducts">Add Product</a>
+                    </div>
+                    <button class="dropdown-btn">Settings
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                      <a href="#">My Account</a>
+                      <a href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="create-blog-main">
+            <div class="create-blog">
+                <div class="create-blog-form">
+                    <form action="/createPost" method="POST">
+                        <input type="text" id="title" class="line postTitle" name="blogtitle" placeholder="Title" required>
+                        <br>
+                        <br>
+                        <input type="file" id="image" class="line" name="image" placeholder="Upload image">
+                        <br>
+                        <br>
+                        <textarea id="body" class="line" name="blogcontent" placeholder="Write your story..." cols="100%" rows="15%" required>
+                        </textarea>
+                        <br>
+                        <br>
+                        <button type="submit">Publish</button>
+                    </form>
+                </div>
             </div>
         </div>
     </body>

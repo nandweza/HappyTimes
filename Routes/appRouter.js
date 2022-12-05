@@ -14,10 +14,10 @@ let posts = [];
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './uploads');
+        cb(null, path.join(__dirname, 'public', 'images'));
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now())
+        cb(null, file.originalname)
     }
 });
 
@@ -52,20 +52,20 @@ router.get('/createPost', (req, res) => {
 
 //create blog post
 router.post("/createPost", upload.single('image'), (req, res) => {
-    const obj = {
-        blogtitle: req.body.blogtitle,
-        blogcontent: req.body.blogcontent,
-        img: {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.originalname)),
-            contentType: 'image/png'
-        }
-    }
+    const { blogtitle, blogcontent } = req.body;
+    var base64ToBuffer = new Buffer(req.image, 'base64');
+
+        //img: {
+        //    data: fs.readFileSync(path.join(__dirname, 'public', 'images')),
+        //    contentType: 'image/png'
+
+    
 
     if (!blogtitle || !blogcontent) {
         return res.redirect("/createPost");
     }
 
-    const posts = new Post({ obj });
+    const posts = new Post({ blogtitle, blogcontent, base64ToBuffer });
 
     posts
         .save()

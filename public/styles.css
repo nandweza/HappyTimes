@@ -5,9 +5,9 @@
 }
 
 :root {
-    --main-white: white;
-    --main-black: rgb(20, 19, 19);
-    --main-orange: orangered;
+    --main-white: whitesmoke;
+    --main-black: rgb(20, 30, 40);
+    --main-orange: rgb(233, 107, 34);
 }
 
 html {
@@ -76,7 +76,7 @@ nav ul {
   
   nav li a {
     display: block;
-    color:rgb(20, 19, 19);
+    color: var(--main-black);
     font-size: 1.6rem;
     text-align: center;
     padding: 14px 16px;
@@ -91,7 +91,7 @@ nav ul {
   }
 
   a:active {
-    color: orangered;
+    color: rgb(255, 115, 0);
   }
 
   nav .langs {
@@ -173,14 +173,14 @@ nav .langs {
     align-items: left;
     width: 100vw;
     height: 100vh;
-    color: black;
-    background-color: rgb(243, 189, 11);
+    color: var(--main-black);
+    background-color: var(--main-white);
     background-image: url('');
     background-size: cover;
-    background: linear-gradient(orange 12%, orangered 45deg);
 }
 
 .home h1 {
+    color: var(--main-orange);
     font-size: 2.8rem;
     margin-left: 100px;
     font-weight: 800;
@@ -189,6 +189,7 @@ nav .langs {
 }
 
 .home p {
+    color: var(--main-orange);
     font-size: 1.5rem;
     font-weight: 500;
     margin-top: 30px;
@@ -199,19 +200,26 @@ nav .langs {
 .home-btn {
     font-size: 1.8rem;
     font-weight: 800;
-    margin-left: 200px;
-    width: 200px;
+    margin-left: 230px;
+    width: 150px;
     padding: 12px;
     border: none;
-    border-radius: 25px;
-    background-color: antiquewhite;
+    border-radius: 0px;
+    color: var(--main-white);
+    background-color: var(--main-orange);;
     cursor: pointer;
+}
+
+.home-btn:hover {
+    background-color: var(--main-black);
+    color: var(--main-orange);
 }
 
 footer {
     display: flex;
     flex-direction: row-reverse;
-    background-color: rgb(20, 30, 40);
+    background-color: var(--main-black);
+    color: var(--main-white);
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 1rem;
@@ -239,8 +247,8 @@ footer .ftext {
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    color: black;
-    background-color: whitesmoke;
+    color: var(--main-black);
+    background-color: var(--main-white);
     width: 100vw;
 }
 
@@ -300,7 +308,7 @@ footer .ftext {
 
 .person img {
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid var(--main-black);
     width: 170px;
 }
 
@@ -363,8 +371,8 @@ footer .ftext {
     align-items: left;
     width: 100vw;
     height: auto;
-    background-color: #f1f1f1;
-    color: #262626;
+    background-color: var(--main-white);
+    color: var(--main-black);
 }
 
 .products-main {
@@ -379,7 +387,7 @@ footer .ftext {
 
 .soap-card {
     padding: 20px;
-    background-color: rgb(20, 30, 40);;
+    background-color: var(--main-black);
 }
 
 .soap-card h3 {
@@ -459,14 +467,14 @@ footer .ftext {
     width: 100vw;
     height: auto;
     color: var(--main-white);
-    background-image: url("/images/blog.jpg");
+    /*background-image: url("/images/blog.jpg");*/
     background-size: cover;
-    background-color: rgb(37, 37, 37);
+    background-color: var(--main-white);
 }
 .main {
     margin-top: 100px;
     margin-bottom: 200px;
-    color: orangered;
+    color: var(--main-orange);
 }
 
 .headtext {
@@ -523,10 +531,10 @@ footer .ftext {
     width: 350px;
     height: 300px;
     padding: 10px;
-    background-color: linen;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background-color: var(--main-white);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     border-radius: 5px;
-    color:rgb(20, 19, 19);
+    color: var(--main-black);
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -578,7 +586,7 @@ form #body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(20, 30, 40);
+    background-color: var(--main-white);
     /*background-image: url("/images/c2.png");*/
     background-size: cover;
     height: auto;
@@ -586,6 +594,7 @@ form #body {
 }
 
 .contact-main h2 {
+    color: var(--main-orange);
     font-size: 3rem;
     margin-top: 150px;
     margin-bottom: 50px;
@@ -597,7 +606,8 @@ form #body {
 }
 
 .contact-main .form-card {
-    background-color: whitesmoke;
+    background-color: var(--main-white);
+    box-shadow: 1px 1px 1px 1px var(--main-black);
     width: 800px;
     height: 400px;
     border-radius: 5px;
@@ -612,33 +622,33 @@ input[type=text], textarea {
     width: 90%;
     padding: 12px;
     border: none;
-    background-color:#f1f1f1;
+    background-color: var(--main-white);
     margin-top: 10px;
     resize: vertical;
     border-radius: 5px;
-    box-shadow: 0.1px 0.1px 1px 1px black;
+    box-shadow: 0.1px 0.1px 1px 1px var(--main-black);
 }
 
 input[type=email], textarea {
     width: 90%;
     padding: 12px;
     border: none;
-    background-color:#f1f1f1;
+    background-color: var(--main-white);
     margin-top: 10px;
     resize: vertical;
     border-radius: 5px;
-    box-shadow: 0.1px 0.1px 1px 1px black;
+    box-shadow: 0.1px 0.1px 1px 1px var(--main-black);
 }
 
 input[type=tel], textarea {
     width: 90%;
     padding: 12px;
     border: none;
-    background-color:#f1f1f1;
+    background-color: var(--main-white);
     margin-top: 10px;
     resize: vertical;
     border-radius: 5px;
-    box-shadow: 0.1px 0.1px 1px 1px black;
+    box-shadow: 0.1px 0.1px 1px 1px var(--main-black);
 }
 
 input[type=button] {
@@ -646,23 +656,23 @@ input[type=button] {
     padding: 10px;
     font-size: 1.8rem;
     font-weight: 500;
-    background-color: #f1f1f1;
+    background-color: var(--main-white);
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
     border: none;
-    box-shadow: 0.1px 0.1px 1px 1px black;
+    box-shadow: 0.1px 0.1px 1px 1px var(--main-black);
 }
 input[type=button]:hover {
-    background-color: rgb(20, 30, 40);
-    color:rgb(251, 251, 255);
+    background-color: var(--main-black);
+    color: var(--main-orange);
 }
 
 .row-loc {
     content: "";
     display: table;
     clear: both;
-    border-bottom: 2px solid whitesmoke;
+    border-bottom: 2px solid var(--main-white);
 }
 
 .column-map {
@@ -681,7 +691,7 @@ input[type=button]:hover {
 
 .card-loc {
     /*background-color: #f1f1f1;*/
-    color:#f1f1f1;
+    color: var(--main-black);
     text-align: center;
     width: 100%;
     margin-left: 10px;
@@ -689,9 +699,10 @@ input[type=button]:hover {
 }
 
 .column-loc h3 {
+    color: var(--main-orange);
     margin-bottom: 50px;
     font-size: 2.5rem;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid var(--main-black);
 }
 
 .column-loc p {

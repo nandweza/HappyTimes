@@ -12,16 +12,14 @@ const imageb = [{image:"../public/images/blog.jpg"}]
 
 let posts = [];
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, 'public', 'images'));
-    },
+const Storage = multer.diskStorage({
+    destination: "./public/uploads",
     filename: (req, file, cb) => {
         cb(null, file.originalname)
     }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: Storage }).single('blogimg');
 
 
 //get the home page
@@ -51,21 +49,16 @@ router.get('/createPost', (req, res) => {
 });
 
 //create blog post
-router.post("/createPost", upload.single('image'), (req, res) => {
+router.post("/createPost", upload, (req, res) => {
     const { blogtitle, blogcontent } = req.body;
-    var base64ToBuffer = new Buffer(req.image, 'base64');
-
-        //img: {
-        //    data: fs.readFileSync(path.join(__dirname, 'public', 'images')),
-        //    contentType: 'image/png'
-
+    const blogimg = req.file.filename;
     
 
     if (!blogtitle || !blogcontent) {
         return res.redirect("/createPost");
     }
 
-    const posts = new Post({ blogtitle, blogcontent, base64ToBuffer });
+    const posts = new Post({ blogtitle, blogcontent, blogimg });
 
     posts
         .save()
@@ -78,8 +71,8 @@ router.post("/createPost", upload.single('image'), (req, res) => {
 
 //get single blog post
 router.get("/posts", async (req, res) => {
-    const blogTitle = req.params.blogtitle;
-    posts = await Post.find({ blogtitle: blogTitle });
+    const blog_id = req.params.blogId
+    posts = await Post.find({ blogId: blog_id });
     isEmpty(posts) ? res.redirect('/') : res.render("posts", { post: posts });
 });
 
@@ -142,13 +135,13 @@ router.post("/login", async (req, res) => {
       const validPassword = await bcrypt.compare(password, user.password);
       if (validPassword) {
         return res.redirect('/admin');
-        console.log("login successfully");
+        //console.log("login successfully");
         //res.status(200).json({ message: "Valid password" });
       } else {
         res.redirect("/login");
         //res.status(400).json({ error: "Invalid Password" });
       }
-    } 
+    }
   });
         
 // admin page

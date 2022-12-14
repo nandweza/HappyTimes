@@ -7,18 +7,20 @@
 
         <%- include('./partials/nav.ejs') %>
         <div class="posts-container">
-            <div class="title-text">
-                <%= post[0].blogtitle %>
+            <div class="posts-card">
+                <div class="title-text">
+                    <%= post[19].blogtitle %>
+                </div>
+                <span>
+                    <%= post[19].createdAt.toLocaleDateString() %>
+                </span>
+                <div>
+                    <img src="<%= post[19].blogimg %>" />
+                </div>
+                <p>
+                    <%= post[19].blogcontent %>
+                </p>
             </div>
-            <span>
-                <%= post[0].createdAt.toLocaleDateString() %>
-            </span>
-            <div>
-                <%= post[0].img %>
-            </div>
-            <p>
-                <%= post[0].blogcontent %>
-            </p>
         </div>
 
         <%- include('./partials/footer.ejs') %>

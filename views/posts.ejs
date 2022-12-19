@@ -8,19 +8,23 @@
         <%- include('./partials/nav.ejs') %>
         <div class="posts-container">
             <div class="posts-card">
-                <div class="title-text">
-                    <%= post[19].blogtitle %>
+                    <div class="title-text">
+                        <%= post[20].blogtitle %>
+                    </div>
+                    <span>
+                        <%= post[20].createdAt.toLocaleDateString() %>
+                    </span>
+                    <div>
+                        <img src="<%= post[20].blogimg %>" />
+                    </div>
+                    <div class="desc">
+                        <%= post[20].blogcontent %>
+                    </div>
+                    <div class="icons">
+                        <i class="fa fa-thumbs-up" aria-hidden="true" style="font-size: 25px;"></i>
+                        <i class="fa fa-thumbs-down" aria-hidden="true" style="font-size: 25px;"></i>
+                    </div>
                 </div>
-                <span>
-                    <%= post[19].createdAt.toLocaleDateString() %>
-                </span>
-                <div>
-                    <img src="<%= post[19].blogimg %>" />
-                </div>
-                <p>
-                    <%= post[19].blogcontent %>
-                </p>
-            </div>
         </div>
 
         <%- include('./partials/footer.ejs') %>

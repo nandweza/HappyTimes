@@ -7,7 +7,7 @@ const appRouter = require('./Routes/appRouter');
 // express app
 const app = express();
 
-const port = 4000;
+const port = 4001;
 dotenv.config();
 
 //mongodb connection

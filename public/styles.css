@@ -363,7 +363,7 @@ footer .ftext {
 
 .desc {
     flex: 40%;
-    padding: 20px;
+    padding: 5px;
     border: 2px solid white;
 }
 
@@ -386,6 +386,19 @@ footer .ftext {
     width: 100%;
 }
 
+@media (max-width: 950px) {
+    .desc {
+        flex: 50%;
+    }
+    .pic {
+        flex: 70%;
+    }
+}
+@media (max-width: 855px) {
+    .abt {
+        flex-direction: column-reverse;
+    }
+}
 .team-header {
     margin-top: 80px;
 }
@@ -397,6 +410,14 @@ footer .ftext {
     grid-gap: 4rem;
     margin-top: 20px;
     padding: 20px;
+}
+
+@media (max-width: 900px) {
+    .team {
+        overflow: scroll;
+        grid-gap: 1rem;
+        padding: 5px;
+    }
 }
 
 .person {
@@ -422,6 +443,43 @@ footer .ftext {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 4rem;
+}
+
+@media (max-width: 900px) {
+    .mgt {
+        overflow: scroll;
+        grid-gap: 1rem;
+        padding: 5px;
+    }
+    .partners {
+        grid-gap: 0.2rem;
+    }
+    .partners .logo-p img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 420px) {
+    .about-main h2 {
+        text-align: center;
+    }
+    .team-header {
+        text-align: center;
+    }
+    .mgt-team-header {
+        text-align: center;
+    }
+    .partners {
+        display: block;
+    }
+    .partners-header {
+        text-align: center;
+    }
+    .partners .logo-p img {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 .logo-p {
@@ -456,6 +514,23 @@ footer .ftext {
     font-size: 1.8rem;
     font-weight: lighter;
     margin: 0;
+}
+
+@media (max-width: 420px) {
+    .contact-us h2 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        text-align: center;
+    }
+    .contact-us h3 {
+        font-size: 1.4rem;
+        font-weight: 300px;
+        text-align: center;
+    }
+    .contact-us p {
+        font-size: 1.2rem;
+        text-align: center;
+    }
 }
 /* end about section */
 

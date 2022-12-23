@@ -131,17 +131,18 @@ nav .langs {
 @media (max-width: 1212px) {
     nav .logo {
         margin-left: 5px;
-        margin-right: 10px;
+        margin-right: 40px;
     }
     nav li a {
+        font-size: 1.4rem;
         text-align: left;
         padding: 12px 8px;
     }
     nav .login {
-        margin-left: 30px;
+        margin-left: 150px;
     }
     nav .langs {
-        width: 80%;
+        width: 90%;
     }
   }
 
@@ -153,39 +154,41 @@ nav .langs {
     display: none;
 }
 
-/*@media (max-width: 1100px) {
+@media (max-width: 900px) {
     .navbar ul {
         display: none;
     }
     .drop-btn {
-        background-color: #4CAF50;
-        color: white;
         text-align: left;
-        padding: 16px;
-        font-size: 16px;
+        padding: 15px;
+        font-size: 20px;
         border: none;
         cursor: pointer;
       }
     .dropdown {
+        /*float: left;
+        overflow: hidden;*/
         position: relative;
         display: inline-block;
     }
     .dropdown-nav {
         display: none;
         position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         padding: 12px 16px;
+        background-color: var(--main-black);
         z-index: 1;
     }
-    .dropdown-content a {
-        color: black;
+    .dropdown-nav a {
+        color: var(--main-white);
+        float: none;
+        display: block;
         padding: 12px 16px;
         text-decoration: none;
+    }
+    .dropdown:hover .dropdown-nav {
         display: block;
-      }
-}*/
+    }
+}
 
 .home {
     display: flex;
@@ -214,18 +217,17 @@ nav .langs {
     font-size: 1.5rem;
     font-weight: 500;
     margin-top: 30px;
-    margin-left: 200px;
+    margin-left: 170px;
     font-family:Arial, Helvetica, sans-serif;
 }
 
 .home-btn {
     font-size: 1.8rem;
     font-weight: 800;
-    margin-left: 230px;
+    margin-left: 200px;
     width: 150px;
     padding: 12px;
     border: none;
-    border-radius: 0px;
     color: var(--main-white);
     background-color: var(--main-orange);;
     cursor: pointer;
@@ -234,6 +236,39 @@ nav .langs {
 .home-btn:hover {
     background-color: var(--main-black);
     color: var(--main-orange);
+}
+
+@media (max-width: 700px) {
+    .home h1 {
+        font-size: 2.4rem;
+        margin-left: 20px;
+    }
+    .home p {
+        font-size: 1.5rem;
+        margin-left: 80px;
+    }
+    .home-btn {
+        font-size: 1.5rem;
+        margin-left: 110px;
+    }
+}
+
+@media (max-width: 498px) {
+    .home h1 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+    .home p {
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 20px auto;
+    }
+    .home-btn {
+        font-size: 1.5rem;
+        margin: auto;
+        padding: 8px;
+        width: 120px;
+    }
 }
 
 footer {
@@ -290,9 +325,15 @@ footer .ftext {
     }
 }
 
-@media (max-width: 365px) {
-    footer .connect {
-        margin: 0;
+@media (max-width: 370px) {
+    footer {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    footer .connect .fa {
+        font-size: 10px;
+        padding: 5px;
+        text-align: center;
     }
 }
 

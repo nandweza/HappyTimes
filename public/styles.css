@@ -337,6 +337,18 @@ footer .ftext {
     }
 }
 
+@media (max-width: 300px) {
+    footer {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    footer .connect .fa {
+        font-size: 5px;
+        padding: 2px;
+        text-align: center;
+    }
+}
+
 /* about section */
 
 .about {
@@ -351,6 +363,13 @@ footer .ftext {
 
 .about-main {
     margin: 100px 50px 0px 50px;
+}
+
+@media (max-width: 300px) {
+    .about-main {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 .about-main h2 {
@@ -470,6 +489,9 @@ footer .ftext {
     .mgt-team-header {
         text-align: center;
     }
+    .person img {
+        width: 120px;
+    }
     .partners {
         display: block;
     }
@@ -528,8 +550,45 @@ footer .ftext {
         text-align: center;
     }
     .contact-us p {
-        font-size: 1.2rem;
+        font-size: 1rem;
         text-align: center;
+    }
+}
+
+@media (max-width: 300px) {
+    .about-main h2 {
+        font-size: 1.8rem;
+    }
+    .team-header {
+        font-size: 1.8rem;
+    }
+    .mgt-team-header {
+        font-size: 1.8rem;
+    }
+    #abt-btn {
+        font-size: 1.5rem;
+        width: 100px;
+        padding: 1px 10px;
+    }
+    .person img {
+        width: 90px;
+    }
+    .partners .logo-p img {
+        width: 100px;
+        height: 100px;
+    }
+    .contact-us h2 {
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+    .contact-us h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .contact-us p {
+        font-size: 0.7rem;
+        text-align: center;
+        font-weight: 500;
     }
 }
 /* end about section */

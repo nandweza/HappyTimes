@@ -241,7 +241,7 @@ nav .langs {
 @media (max-width: 700px) {
     .home h1 {
         font-size: 2.4rem;
-        margin-left: 20px;
+        margin-left: 50px;
     }
     .home p {
         font-size: 1.5rem;
@@ -254,6 +254,9 @@ nav .langs {
 }
 
 @media (max-width: 498px) {
+    .home {
+        height: 80vh;
+    }
     .home h1 {
         text-align: center;
         font-size: 1.8rem;
@@ -261,13 +264,29 @@ nav .langs {
     .home p {
         text-align: center;
         font-size: 1.2rem;
-        margin: 20px auto;
+        margin: 10px auto;
     }
     .home-btn {
         font-size: 1.5rem;
         margin: auto;
         padding: 8px;
         width: 120px;
+    }
+}
+
+@media (max-width: 320px) {
+    .home {
+        height: 70vh;
+    }
+    .home h1 {
+        margin: 0;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    .home p {
+        margin: 5px 0;
+        text-align: center;
+        font-size: 0.8rem;
     }
 }
 
@@ -337,15 +356,22 @@ footer .ftext {
     }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 320px) {
     footer {
         padding-top: 0px;
         padding-bottom: 0px;
     }
+    footer .connect {
+        margin: 0 5px;
+    }
     footer .connect .fa {
-        font-size: 5px;
-        padding: 2px;
+        font-size: 1px;
+        padding: 1px;
         text-align: center;
+    }
+    .ftext p{
+        padding: 0 5px;
+        font-size: 0.8rem;
     }
 }
 
@@ -576,6 +602,8 @@ footer .ftext {
     .partners .logo-p img {
         width: 100px;
         height: 100px;
+        margin: 0;
+        padding: 0;
     }
     .contact-us h2 {
         font-size: 1.4rem;
@@ -930,7 +958,7 @@ form #body {
 }
 
 .contact-main .form-row{
-    margin-bottom: 150px;
+    margin-bottom: 100px;
     display: flex;
 }
 
@@ -940,6 +968,17 @@ form #body {
     width: 800px;
     height: 400px;
     border-radius: 5px;
+}
+
+@media (max-width: 950px) {
+    .contact-main h2 {
+        font-size: 2rem;
+        margin-top: 70px;
+        margin-bottom: 30px;
+    }
+    .contact-main .form-card {
+        width: 600px;
+    }
 }
 
 .contact-main .form-card form {
@@ -1037,6 +1076,60 @@ input[type=button]:hover {
 .column-loc p {
     margin-bottom: 30px;
     font-size: 1.5rem;
+}
+
+@media (max-width: 1130px) {
+    .row-loc {
+        margin: 10px;
+    }
+    .column-map {
+        width: 25%;
+    }
+    .column-map .card {
+        margin-right: 200px;
+    }
+    .column-loc {
+        width: 35%;
+    }
+    .card-loc {
+        margin-left: 2px;
+    }
+    .card-loc .fa {
+        font-size: 18px;
+    }
+    .column-loc h3 {
+        font-size: 2rem;
+    }
+    
+    .column-loc p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .row-loc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .column-map .card {
+        margin-left: 30px;
+    }
+    iframe {
+        margin: 0 auto;
+        width: 100%;
+    }
+    .card-loc .fa {
+        font-size: 20px;
+    }
+    .column-loc h3 {
+        font-size: 2.5rem;
+    }
+    
+    .column-loc p {
+        font-size: 1.5rem;
+    }
 }
 /* end contact section */
 

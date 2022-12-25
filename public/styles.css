@@ -144,10 +144,6 @@ nav .langs {
     nav .langs {
         width: 90%;
     }
-  }
-
-@media (max-width: 800px) {
-    
 }
 
 .dropdown {
@@ -164,11 +160,11 @@ nav .langs {
         font-size: 20px;
         border: none;
         cursor: pointer;
-      }
+    }
     .dropdown {
         /*float: left;
         overflow: hidden;*/
-        position: relative;
+        position: fixed;
         display: inline-block;
     }
     .dropdown-nav {

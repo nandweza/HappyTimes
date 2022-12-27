@@ -642,39 +642,43 @@ footer .ftext {
 
 .soap-card {
     padding: 20px;
-    background-color: var(--main-black);
+    /*background-color: var(--main-black);*/
 }
 
 .soap-card h3 {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 600;
+    color: var(--main-orange);
 }
 
 .soap-grid {
     display: grid;
     grid-template-columns: auto auto auto auto;
     width: 100%;
-    grid-gap: 4rem;
+    grid-gap: 1.5rem;
     margin: 0 auto;
 }
 
 .soap {
     background-color: white;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
     border-radius: 5px;
     text-align: center;
+    width: 280px;
+    height: auto;
 }
 
 .soap > img {
     width: 200px;
+    height: auto;
 }
 
 .soap p {
     font-size: 1.2rem;
-    color: black;
-    font-weight: 400;
-    background-color: gray;
+    color: var(--main-orange);
+    font-weight: 500;
+    background-color: var(--main-white);
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 0;
@@ -687,6 +691,31 @@ footer .ftext {
     border-radius: 5px;
 }
 
+@media (max-width: 1200px) {
+    .soap-grid {
+        grid-template-columns: auto auto;
+        grid-gap: 4rem;
+        margin: 0 auto;
+    }
+    .soap {
+        margin: 0 auto;
+        width: 350px;
+        height: auto;
+    }
+}
+
+@media (max-width: 450px) {
+    .soap-grid {
+        grid-template-columns: auto;
+        grid-gap: 4rem;
+    }
+    .soap {
+        width: 400px;
+        height: auto;
+    }
+}
+
+
 /* service section */
 .services h2 {
     text-align: center;
@@ -698,17 +727,76 @@ footer .ftext {
     display: grid;
     grid-template-columns: auto auto auto;
     width: 100%;
-    grid-gap: 4rem;
+    grid-gap: 2rem;
     margin: 0 auto;
     margin-bottom: 100px;
-    padding: 20px;
+    padding: 0 10px;
 }
 
 .service {
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
     border-radius: 5px;
-    text-align: center;
-    background-color: gray;
+    width: 280px;
+    height: auto;
+    padding: 10px;
+    margin: 0 auto;
+    color: var(--main-black);
+    background-color: var(--main-white)
+}
+
+.service h3 {
+    color: var(--main-orange);
+}
+
+@media (max-width: 900px) {
+    .soap-grid {
+        grid-gap: 2rem;
+        margin: 0 auto;
+    }
+    .soap {
+        margin: 0 auto;
+        width: 300px;
+        height: auto;
+    }
+    .service-grid {
+        grid-gap: 1rem;
+    }
+    
+    .service {
+        width: 200px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .soap-grid {
+        grid-gap: 1rem;
+    }
+    .soap {
+        width: 200px;
+        height: auto;
+    }
+    .service-grid {
+        grid-template-columns: auto;
+        grid-gap: 4rem;
+        margin-bottom: 50px;
+    }
+    
+    .service {
+        width: 350px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .service-grid {
+        grid-gap: 2rem;
+    }
+    
+    .service {
+        width: 220px;
+        padding: 10px;
+    }
 }
 
 /* end product section */
@@ -1121,6 +1209,32 @@ input[type=button]:hover {
     color: var(--main-orange);
 }
 
+@media (max-width: 850px) {
+    input[type=text], textarea {
+        width: 80%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    input[type=email], textarea {
+        width: 80%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    input[type=tel], textarea {
+        width: 80%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    input[type=button] {
+        width: 80%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
 .row-loc {
     content: "";
     display: table;
@@ -1193,18 +1307,21 @@ input[type=button]:hover {
 
 @media (max-width: 800px) {
     .row-loc {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 4rem;
+        margin: 0 auto;
     }
     .column-map .card {
-        margin-left: 30px;
+        margin: 0 auto;
     }
     iframe {
         margin: 0 auto;
         width: 100%;
         background-size: cover;
+    }
+    .column-loc {
+        margin: 0 auto;
     }
     .card-loc .fa {
         font-size: 20px;
@@ -1215,6 +1332,37 @@ input[type=button]:hover {
     
     .column-loc p {
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 680px) {
+    .contact-main .form-card {
+        width: 500px;
+        height: 350px;
+        border-radius: 5px;
+    }
+    input[type=text], textarea {
+        width: 60%;
+        padding: 8px;
+        margin-top: 10px;
+    }
+    
+    input[type=email], textarea {
+        width: 60%;
+        padding: 8px;
+        margin-top: 10px;
+    }
+    
+    input[type=tel], textarea {
+        width: 60%;
+        padding: 8px;
+        margin-top: 10px;
+    }
+    
+    input[type=button] {
+        width: 60%;
+        padding: 8px;
+        margin-top: 10px;
     }
 }
 /* end contact section */

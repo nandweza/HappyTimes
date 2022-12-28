@@ -54,10 +54,12 @@ a:hover {
     z-index: 1;
 }*/
 nav {
-    /*background-color: linen;
+    background-color: #f1f1f1;
+    /*background-color: var(--main-white);
     /*background: none;*/
     width: 100%;
     position: fixed;
+    z-index: 1;
 }
 
 nav ul {
@@ -81,7 +83,6 @@ nav ul {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color: whitesmoke;
     /*border-radius: 25px;*/
   }
 
@@ -151,23 +152,29 @@ nav .langs {
 }
 
 @media (max-width: 900px) {
+    .dropdown .logo {
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 50px;
+    }
     .navbar ul {
         display: none;
     }
     .drop-btn {
+        float: right;
         text-align: left;
         padding: 15px;
-        font-size: 20px;
+        font-size: 30px;
         border: none;
         cursor: pointer;
     }
     .dropdown {
-        /*float: left;
-        overflow: hidden;*/
+        background-color: #f1f1f1;
         position: fixed;
         display: inline-block;
     }
     .dropdown-nav {
+        right: 0;
         display: none;
         position: absolute;
         padding: 12px 16px;
@@ -859,7 +866,7 @@ footer .ftext {
         grid-gap: 2rem;
     }
     .main {
-        margin-top: 30px;
+        margin-top: 80px;
         margin-bottom: 50px;
     }
 }
@@ -1209,32 +1216,6 @@ input[type=button]:hover {
     color: var(--main-orange);
 }
 
-@media (max-width: 850px) {
-    input[type=text], textarea {
-        width: 80%;
-        padding: 10px;
-        margin-top: 10px;
-    }
-    
-    input[type=email], textarea {
-        width: 80%;
-        padding: 10px;
-        margin-top: 10px;
-    }
-    
-    input[type=tel], textarea {
-        width: 80%;
-        padding: 10px;
-        margin-top: 10px;
-    }
-    
-    input[type=button] {
-        width: 80%;
-        padding: 10px;
-        margin-top: 10px;
-    }
-}
-
 .row-loc {
     content: "";
     display: table;
@@ -1342,27 +1323,29 @@ input[type=button]:hover {
         border-radius: 5px;
     }
     input[type=text], textarea {
-        width: 60%;
         padding: 8px;
         margin-top: 10px;
     }
     
     input[type=email], textarea {
-        width: 60%;
         padding: 8px;
         margin-top: 10px;
     }
     
     input[type=tel], textarea {
-        width: 60%;
         padding: 8px;
         margin-top: 10px;
     }
     
     input[type=button] {
-        width: 60%;
         padding: 8px;
         margin-top: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .column-map .card {
+        display: ;
     }
 }
 /* end contact section */

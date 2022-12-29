@@ -48,6 +48,12 @@ router.get('/createPost', (req, res) => {
     res.render('createPost');
 });
 
+//get all posts by admin
+router.get('/allPosts', async (req, res) => {
+    posts = await Post.find();
+    res.render('allPosts', {posts: posts});
+})
+
 //create blog post
 router.post("/createPost", upload, (req, res) => {
     const { blogtitle, blogcontent } = req.body;
@@ -73,11 +79,11 @@ router.post("/createPost", upload, (req, res) => {
 router.get("/posts", async (req, res) => {
     const blog_id = req.params.blogId
     posts = await Post.find({ blogId: blog_id });
-    isEmpty(posts) ? res.redirect('/') : res.render("posts", { post: posts });
+    isEmpty(posts) ? res.redirect('/') : res.render("posts", { posts: posts });
 });
 
 //update blog
-router.put('/createPost/:id', async (req, res) => {
+router.put('/allPosts/:id', async (req, res) => {
     try {
         const updatedPost = await Post.findByIdAndUpdate(req.params.id, {
             $set: req.body,
@@ -88,11 +94,12 @@ router.put('/createPost/:id', async (req, res) => {
     }
 });
 
-//delete blog
-router.delete('/createPost/:id', async (req, res) => {
+//delete blog post
+router.delete('/allPosts/:id/delete', async (req, res) => {
     try {
         const deletedPost = await Post.findByIdAndDelete(req.params.id);
         res.status(200).json("Post deleted successfully!!");
+        res.redirect('/allPosts');
     } catch (err) {
         res.status(500).json(err);
     }

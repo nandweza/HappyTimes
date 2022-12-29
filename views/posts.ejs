@@ -8,17 +8,18 @@
         <%- include('./partials/nav.ejs') %>
         <div class="posts-container">
             <div class="posts-card">
+                <% for (var i=0; i < posts.length; i++) { %>
                     <div class="title-text">
-                        <%= post[20].blogtitle %>
+                        <%= posts[i].blogtitle %>
                     </div>
                     <span>
-                        <%= post[20].createdAt.toLocaleDateString() %>
+                        <%= posts[i].createdAt.toLocaleDateString() %>
                     </span>
                     <div>
-                        <img src="<%= post[20].blogimg %>" />
+                        <img src="<%= posts[i].blogimg %>" />
                     </div>
                     <div class="desc">
-                        <%= post[20].blogcontent %>
+                        <%= posts[i].blogcontent %>
                     </div>
                     <div class="icons">
                         <div class="card-icons">
@@ -27,6 +28,7 @@
                             <i class="fa fa-share" aria-hidden="true" style="font-size: 20px; color: rgb(233, 107, 34); padding: 5px 25px"></i>
                         </div>
                     </div>
+                <% } %>
                 </div>
         </div>
 

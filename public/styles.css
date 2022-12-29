@@ -112,7 +112,7 @@ nav ul {
 
 nav .logo {
     margin-right: 100px;
-    margin-left: 50px;
+    margin-left: 30px;
     width: 70px;
 }
 
@@ -1406,15 +1406,71 @@ input[type=button]:hover {
     box-shadow: 1px 1px 2px 2px black;
 }
 
+@media (max-width: 700px) {
+    .login-main form {
+        padding: 40px;
+    }
+    
+    .login-main form legend {
+        font-size: 1.7rem;
+    }
+    
+    .login-main form .back-to-home {
+        width: 90%;
+        margin: 0 auto;
+        padding: 8px;
+        font-size: 1.7rem;
+    }
+    
+    .login-main form .uname, .pwd {
+        width: 90%;
+        padding: 8px;
+        font-size: 1.7rem;
+    }
+    
+    .login-main form .l-btn {
+        width: 90%;
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .login-main form {
+        padding: 5px;
+    }
+    
+    .login-main form legend {
+        font-size: 1.5rem;
+    }
+    
+    .login-main form .back-to-home {
+        width: 70%;
+        padding: 5px;
+        font-size: 1.5rem;
+    }
+    
+    .login-main form .uname, .pwd {
+        width: 70%;
+        padding: 5px;
+        font-size: 1.5rem;
+    }
+    
+    .login-main form .l-btn {
+        width: 70%;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+}
+
 /* end login section */
 
 /* Admin page */
 .sidebar {
-    color: black;
+    color: var(--main-black);
     width: 160px;
     flex: 1;
     height: calc(100vh - 50px);
-    background-color: rgb(251, 251, 255);
+    background-color: #f1f1f1;
     position: fixed;
     top: 50px;
 }
@@ -1427,7 +1483,7 @@ input[type=button]:hover {
 }
 
 .sidebar a {
-    color: black;
+    color: var(--main-black);
 }
 
 .sidebar .client {
@@ -1441,7 +1497,7 @@ input[type=button]:hover {
     display: flex;
     align-items: center;
     align-content: center;
-    background-color: linen;
+    background-color: #f1f1f1;
     width: 100%;
     color:rgb(20, 30, 40);
     height: 50px;
@@ -1467,12 +1523,13 @@ input[type=button]:hover {
   
   /* On mouse-over */
   .sidebar a:hover, .dropdown-btn:hover {
-    color: #f1f1f1;
+    color: var(--main-white);
+    background-color: var(--main-black);
   }
   
   /* Add an active class to the active dropdown button */
   .active {
-    background-color: green;
+    background-color: var(--main-orange);
     color: white;
   }
   
@@ -1519,5 +1576,14 @@ input[type=button]:hover {
     width: 90%;
     height: 400px;
     background-color: #f9f9f9;
+}
+
+.fblog .bt-edit, .fblog .bt-del {
+    padding: 5px;
+    width: 80px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--main-black);
 }
 /* End Admin page*/

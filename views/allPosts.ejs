@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/admin-navbar.ejs') %>
+        <div class="blog content">
+            <div class="create-blog-main">
+                <div class="box featured-blogs">
+                    <% posts.forEach((post) => { %>
+                    <div class="single-blog fblog">
+                        <button class="bt-edit">Edit</button>
+                        <button type="submit" class="bt-del"><a href="/allPosts/id<%= posts.deletedPost %>">Delete</a></button>
+                        <span class="date">
+                            <%= post.createdAt.toLocaleDateString(); %>
+                        </span>
+                        <br>
+                        <br>
+                        <div class="title">
+                            <%= post.blogtitle %>
+                        </div>
+                        <div class="img-div">
+                            <img src="<%= post.blogimg %>" />
+                        </div>
+                        <div class="desc">
+                            <p>
+                                <%= post.blogcontent.substring(0, 200) + "..." %>
+                                <!--<a href="/posts" style="color: red;">Read more.</a>-->
+                            </p>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

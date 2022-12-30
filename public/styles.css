@@ -1536,7 +1536,7 @@ input[type=button]:hover {
   /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
   .dropdown-container {
     display: none;
-    background-color: #262626;
+    background-color: var(--main-white);
     padding-left: 8px;
   }
   
@@ -1578,12 +1578,15 @@ input[type=button]:hover {
     background-color: #f9f9f9;
 }
 
-.fblog .bt-edit, .fblog .bt-del {
-    padding: 5px;
-    width: 80px;
-    font-size: 1.4rem;
-    font-weight: 600;
+.icons-2 button {
+    margin-top: 20px;
+    padding: 15px;
     cursor: pointer;
-    color: var(--main-black);
 }
+
+.danger-btn .icons-2 .fa {
+    padding: 10px;
+    float: right;
+}
+
 /* End Admin page*/

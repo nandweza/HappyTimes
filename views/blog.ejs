@@ -11,27 +11,31 @@
                     <p>Elevating your happiness regularly...</p>
                 </div>
                 <div class="box featured-blogs">
-                    <% posts.forEach((post) => { %>
-                    <div class="single-blog fblog">
-                        <span class="date">
-                            <%= post.createdAt.toLocaleDateString(); %>
-                        </span>
-                        <br>
-                        <br>
-                        <div class="title">
-                            <%= post.blogtitle %>
-                        </div>
-                        <div class="img-div">
-                            <img src="<%= post.blogimg %>" />
-                        </div>
-                        <div class="desc">
-                            <p>
-                                <%= post.blogcontent.substring(0, 200) + "..." %>
-                                <a href="/posts" style="color: red;">Read more.</a>
-                            </p>
-                        </div>
-                    </div>
-                    <% }) %>
+                    <% if (posts.length > 0) { %>
+                        <% posts.forEach((post) => { %>
+                            <div class="single-blog fblog">
+                                <span class="date">
+                                    <%= post.createdAt.toLocaleDateString(); %>
+                                </span>
+                                <br>
+                                <br>
+                                <div class="title">
+                                    <%= post.blogtitle %>
+                                </div>
+                                <div class="img-div">
+                                    <img src="<%= post.blogimg %>" />
+                                </div>
+                                <div class="desc">
+                                    <p>
+                                        <%= post.blogcontent.substring(0, 200) + "..." %>
+                                        <a href="/posts" style="color: red;">Read more.</a>
+                                    </p>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                    <p>There are no blog posts to display...</p>
+                    <% } %>
                 </div>
             </div>
         </div>

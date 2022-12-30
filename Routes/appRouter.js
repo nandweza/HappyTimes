@@ -39,7 +39,7 @@ router.get('/products', (req, res) => {
 
 //get blog page
 router.get('/blog', async (req, res) => {
-    posts = await Post.find();
+    posts = await Post.find().sort({createdAt: -1});
     res.render('blog', {imageb: imageb, posts: posts});
 });
 
@@ -50,7 +50,7 @@ router.get('/createPost', (req, res) => {
 
 //get all posts by admin
 router.get('/allPosts', async (req, res) => {
-    posts = await Post.find();
+    posts = await Post.find().sort({ createdAt: -1});
     res.render('allPosts', {posts: posts});
 })
 
@@ -64,7 +64,7 @@ router.post("/createPost", upload, (req, res) => {
         return res.redirect("/createPost");
     }
 
-    const posts = new Post({ blogtitle, blogcontent, blogimg });
+    const posts = new Post({ blogtitle, blogcontent, blogimg, createdAt });
 
     posts
         .save()
@@ -94,15 +94,23 @@ router.put('/allPosts/:id', async (req, res) => {
     }
 });
 
+//get delete method
+//router.get('/allPosts/:id', (req, res) => {
+//    res.render('allPosts', {posts: posts});
+//})
+
 //delete blog post
-router.delete('/allPosts/:id/delete', async (req, res) => {
-    try {
-        const deletedPost = await Post.findByIdAndDelete(req.params.id);
-        res.status(200).json("Post deleted successfully!!");
-        res.redirect('/allPosts');
-    } catch (err) {
-        res.status(500).json(err);
-    }
+router.post('/delete', (req, res) => {
+    const deletedItemId = req.body.deleteBtn;
+
+    Post.findByIdAndDelete(deletedItemId, (err) => {
+        if (!err) {
+            console.log("deletion success!");
+            res.redirect("/allPosts");
+        } else {
+            console.log(err);
+        }
+    });
 });
 
 //get contact page

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+      <%- include('./partials/admin-navbar.ejs') %>
+        <div class="create-blog-main">
+            <div class="create-blog">
+                <div class="create-blog-form">
+                    <form action="/edit" method="POST" enctype="multipart/form-data">
+                        <input type="text" id="title" class="line postTitle" name="blogtitle" placeholder="Title" required>
+                        <br>
+                        <br>
+                        <input type="file" id="blogimg" class="line" name="blogimg" multiple="multiple" accept="image/*" placeholder="Upload image">
+                        <br>
+                        <br>
+                        <textarea id="body" class="line" name="blogcontent" placeholder="Write your story..." cols="100%" rows="15%" required>
+                        </textarea>
+                        <br>
+                        <br>
+                        <button type="submit">Edit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

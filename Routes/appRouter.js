@@ -82,8 +82,14 @@ router.get("/posts", async (req, res) => {
     isEmpty(posts) ? res.redirect('/') : res.render("posts", { posts: posts });
 });
 
+
+//get edit page
+router.get('/edit', (req, res) => {
+    res.render('edit');
+})
+
 //update blog
-router.put('/allPosts/:id', async (req, res) => {
+router.post('/edit', async (req, res) => {
     try {
         const updatedPost = await Post.findByIdAndUpdate(req.params.id, {
             $set: req.body,
@@ -93,11 +99,6 @@ router.put('/allPosts/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-//get delete method
-//router.get('/allPosts/:id', (req, res) => {
-//    res.render('allPosts', {posts: posts});
-//})
 
 //delete blog post
 router.post('/delete', (req, res) => {

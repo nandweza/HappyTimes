@@ -11,12 +11,11 @@
                     <form class="form-bt" action="/delete" method="post">
                     <% posts.forEach ( function (post) { %>
                         <div class="icons-2">
-                            <a href="<%= `/allPosts/${posts._id}/edit` %>"><i class="fa fa-edit" style="font-size: 30px;"></i></a>
-                            <a class="delete" data-doc="<%= posts._id %>"></a>
+                            <a href="<%= `/edit` %>" data-toggle="model" value="<%= posts._id %>"><i class="fa fa-edit" style="font-size: 30px;"></i></a>
                             <button name="deleteBtn" value="<%=post._id%>" type="submit" class="danger-btn">
                                 <i class="fa fa-trash" style="font-size: 30px;"></i>
                             </button>
-                            </div>
+                        </div>
                             <div class="title-text">
                                 <%= post.blogtitle %>
                             </div>
@@ -36,8 +35,8 @@
                                     <i class="fa fa-share" aria-hidden="true" style="font-size: 20px; color: rgb(233, 107, 34); padding: 5px 25px"></i>
                                 </div>
                             </div>
-                            <% }); %>
-                        </form>
+                    <% }); %>
+                    </form>
                     </div>
                 </div>
             </div>

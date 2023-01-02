@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Post = require("../models/post");
 const User = require("../models/user");
+const Comment = require("../models/comment");
+const Product = require("../models/products");
+const Service = require("../models/services");
 const bcrypt = require("bcrypt");
 const isEmpty = require("is-empty");
 const fs = require("fs");
@@ -21,7 +24,6 @@ const Storage = multer.diskStorage({
 
 const upload = multer({ storage: Storage }).single('blogimg');
 
-
 //get the home page
 router.get('/', (req, res) => {
     res.render('index', {images: images});
@@ -33,8 +35,95 @@ router.get('/about-us', (req, res) => {
 });
 
 //get product page
-router.get('/products', (req, res) => {
-    res.render('products');
+router.get('/products', async (req, res) => {
+    const products = await Product.find().sort({ createdAt: -1 });
+    const services = await Service.find();
+    res.render("products", { products: products, services: services });
+});
+
+//get addProducts by admin
+router.get('/addProducts', (req, res) => {
+    res.render('addProducts');
+})
+
+//add products
+router.post("/products", upload, (req, res) => {
+    const { desc } = req.body;
+    const blogimg = req.file.filename;
+    
+
+    if (!blogimg || !desc) {
+        return res.redirect("/products");
+    }
+
+    const products = new Product({ blogimg, desc });
+
+    products
+        .save()
+        .then(() => {
+            console.log("product created!!!");
+            res.redirect('/admin');
+        })
+        .catch ((err) => console.log(err));
+});
+
+//get all products by admin
+router.get("/allProducts", async (req, res) => {
+    const products = await Product.find().sort({ createdAt: -1 });
+    res.render("allProducts", { products: products });
+});
+
+//delete a product
+router.post('/deleteProduct', (req, res) => {
+    const deletedItemId = req.body.deleteBtn;
+
+    Product.findByIdAndDelete(deletedItemId, (err) => {
+        if (!err) {
+            console.log("deletion success!");
+            res.redirect("/allProducts");
+        } else {
+            console.log(err);
+        }
+    });
+});
+
+//add a service
+router.post("/service", (req, res) => {
+    const { title, desc } = req.body;
+
+    if (!desc) {
+        return res.redirect("/service");
+    }
+
+    const services = new Service({ title, desc });
+
+    services
+        .save()
+        .then(() => {
+            console.log("service created!!!");
+            res.redirect('/admin');
+        })
+        .catch ((err) => console.log(err));
+});
+
+//get service by admin
+router.get("/service", async (req, res) => {
+    const services = await Service.find();
+    res.render("service", { services: services });
+});
+
+//delete a service
+router.post('/deleteService', (req, res) => {
+    const deletedItemId = req.body.deleteBtn;
+
+    Service.findByIdAndDelete(deletedItemId, (err) => {
+        if (!err) {
+            console.log("deletion success!");
+            res.redirect("/service");
+        } else {
+            console.log(err);
+        }
+    });
 });
 
 //get blog page
@@ -52,7 +141,7 @@ router.get('/createPost', (req, res) => {
 router.get('/allPosts', async (req, res) => {
     posts = await Post.find().sort({ createdAt: -1});
     res.render('allPosts', {posts: posts});
-})
+});
 
 //create blog post
 router.post("/createPost", upload, (req, res) => {
@@ -64,7 +153,7 @@ router.post("/createPost", upload, (req, res) => {
         return res.redirect("/createPost");
     }
 
-    const posts = new Post({ blogtitle, blogcontent, blogimg, createdAt });
+    const posts = new Post({ blogtitle, blogcontent, blogimg });
 
     posts
         .save()
@@ -77,9 +166,10 @@ router.post("/createPost", upload, (req, res) => {
 
 //get single blog post
 router.get("/posts", async (req, res) => {
-    const blog_id = req.params.blogId
-    posts = await Post.find({ blogId: blog_id });
-    isEmpty(posts) ? res.redirect('/') : res.render("posts", { posts: posts });
+    //const blog_id = req.params.id
+    const comments = Comment.find().sort({ createdAt: -1 });
+    posts = await Post.findOne();
+    isEmpty(posts) ? res.redirect('/') : res.render("posts", { posts: posts, comments: comments });
 });
 
 
@@ -112,6 +202,21 @@ router.post('/delete', (req, res) => {
             console.log(err);
         }
     });
+});
+
+//post comment
+router.post('/postcomments', (req, res) => {
+    const postComments = req.body;
+
+    const comments = new Comment({ postComments });
+
+    comments
+        .save()
+        .then(() => {
+            console.log("comment posted successfully");
+            res.redirect('/posts');
+        })
+        .catch ((err) => console.log(err));
 });
 
 //get contact page

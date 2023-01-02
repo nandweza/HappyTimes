@@ -33,6 +33,11 @@ app.use((req, res, next) => {
 app.use('/', appRouter);
 app.use('/about-us', appRouter);
 app.use('/products', appRouter);
+app.use('/addProducts', appRouter);
+app.use("/allProducts", appRouter);
+app.use("/deleteProduct", appRouter);
+app.use("/service", appRouter);
+app.use("/deleteService", appRouter);
 app.use('/blog', appRouter);
 app.use('/contact', appRouter);
 app.use('/createBlog', appRouter);
@@ -40,7 +45,9 @@ app.use('/allBlogs', appRouter);
 app.use('/login', appRouter);
 app.use('/admin', appRouter);
 app.use('/allPosts', appRouter);
+app.use('/edit', appRouter);
 app.use('/delete', appRouter);
+app.use('/comments', appRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on Port: ${port}`);

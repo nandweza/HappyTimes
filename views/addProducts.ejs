@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+      <%- include('./partials/admin-navbar.ejs') %>
+        <div class="create-blog-main">
+            <div class="create-blog">
+                <div class="create-blog-form">
+                    <form action="/products" method="POST" enctype="multipart/form-data">
+                        <h2>Our Products</h2>
+                        <input type="file" id="blogimg" name="blogimg" multiple="multiple" accept="image/*" placeholder="Upload image">
+                        <br>
+                        <br>
+                        <textarea id="body" name="desc" placeholder="add product description..." cols="50" rows="4" required>
+                        </textarea>
+                        <br>
+                        <br>
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+                <div class="create-blog-form">
+                    <form action="/service" method="POST">
+                        <h2>Our Services</h2>
+                        <input type="text" id="title" name="title" placeholder="add title...">
+                        <textarea id="body" name="desc" placeholder="add service description..." cols="50" rows="10" required>
+                        </textarea>
+                        <br>
+                        <br>
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

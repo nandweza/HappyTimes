@@ -8,25 +8,31 @@
             <div class="products-main">
                 <div class="product">
                     <h2>Our Products</h2>
+                    <div class="abt-rule"></div>
                     <div class="soap-card">
-                        <h3>Happy Wash Liquid Soap.</h3>
-                        <% products.forEach((product) => { %>
-                            <div class="soap-grid">
+                        <!--<h3>Happy Wash Liquid Soap.</h3>-->
+                        <div class="soap-grid">
+                            <% products.forEach((product) => { %>
                                 <div class="soap">
                                     <div class="soap-image">
                                         <img src="<%= product.blogimg %>" alt="1 litre Liquid Soap" />
                                     </div>
-                                    <p>
-                                        <%= product.desc %>
-                                    </p>
+                                    <div class="desc">
+                                        <h4>
+                                            <%= product.title %>
+                                        </h4>
+                                        <p>
+                                            <%= product.desc %>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        <% }) %>
+                            <% }) %>
                         </div>
                     </div>
                 </div>
                 <div class="services">
                     <h2>Our Services</h2>
+                    <div class="abt-rule"></div>
                     <div class="service-grid">
                         <% services.forEach((service) => { %>
                             <div class="service">

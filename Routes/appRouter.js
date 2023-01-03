@@ -48,15 +48,15 @@ router.get('/addProducts', (req, res) => {
 
 //add products
 router.post("/products", upload, (req, res) => {
-    const { desc } = req.body;
+    const { desc, title } = req.body;
     const blogimg = req.file.filename;
     
 
-    if (!blogimg || !desc) {
+    if (!blogimg || !desc || !title) {
         return res.redirect("/products");
     }
 
-    const products = new Product({ blogimg, desc });
+    const products = new Product({ blogimg, desc, title });
 
     products
         .save()

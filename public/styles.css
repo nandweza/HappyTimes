@@ -755,57 +755,61 @@ footer .ftext {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 800;
+    color: var(--main-orange);
+    margin-bottom: 0;
 }
 
-.soap-card {
-    padding: 20px;
-    /*background-color: var(--main-black);*/
-}
+/*.soap-card {
+    margin-top: 20px;
+}*/
 
 .soap-card h3 {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--main-orange);
+    color: var(--main-black);
 }
 
 .soap-grid {
     display: grid;
     grid-template-columns: auto auto auto auto;
     width: 100%;
-    grid-gap: 1.5rem;
+    grid-gap: 1rem;
     margin: 0 auto;
+    margin-top: 40px;
 }
 
 .soap {
-    background-color: white;
-    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
+    background-color: var(--main-white);
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
     border-radius: 5px;
     text-align: center;
-    width: 280px;
-    height: auto;
+    width: 250px;
+    height: 400px;
+    margin: 0 auto;
 }
 
 .soap > img {
-    width: 200px;
-    height: auto;
+    width: 180px;
+    height: 100px;
+    padding: 0px;
 }
 
-.soap p {
+.soap .desc {
     font-size: 1.2rem;
-    color: var(--main-orange);
-    font-weight: 500;
-    background-color: var(--main-white);
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 0;
+    font-weight: 800;
+    width: 180px;
+    margin: 0 auto;
+    color: var(--main-black);
+    background-color: white;
+    padding: 2px;
+    margin-top: 0px;
 }
 
-.soap .shop {
-    cursor: pointer;
-    padding: 5px;
-    font-weight: bolder;
-    border-radius: 5px;
+.soap .desc h4 {
+    color: var(--main-orange);
+    font-size: 1.4rem;
+    margin-bottom: 0;
 }
 
 @media (max-width: 1200px) {
@@ -839,10 +843,12 @@ footer .ftext {
     font-size: 2.5rem;
     font-weight: 600;
     margin-top: 100px;
+    color: var(--main-orange);
+    margin-bottom: 0;
 }
 .service-grid {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto;
     width: 100%;
     grid-gap: 2rem;
     margin: 0 auto;
@@ -853,12 +859,13 @@ footer .ftext {
 .service {
     box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
     border-radius: 5px;
-    width: 280px;
+    width: 80%;
     height: auto;
     padding: 10px;
     margin: 0 auto;
     color: var(--main-black);
-    background-color: var(--main-white)
+    background-color: white;
+    margin-top: 20px;
 }
 
 .service h3 {

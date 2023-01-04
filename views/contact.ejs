@@ -9,18 +9,24 @@
                 <h2>Get in touch with us.</h2>
                 <div class="form-row">
                     <div class="form-card">
-                        <form action="" method="post" class="form">
-                            <input type="text" name="Name" id="name" placeholder="Name">
+                        <form 
+                          action="send" 
+                          method="post" 
+                          class="form" 
+                          id="contact-form" 
+                          enctype="multipart/form-data"
+                        >
+                            <input type="text" name="name" id="name" placeholder="Name" required>
                             <br>
-                            <input type="email" name="Email" id="email" placeholder="Email">
+                            <input type="email" name="email" id="email" placeholder="Email" required>
                             <br>
-                            <input type="tel" name="Phone number" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone number">
+                            <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone number">
                             <br>
-                            <input type="text" name="subject" id="subject" placeholder="Subject">
+                            <input type="text" name="subject" id="subject" placeholder="Subject" required>
                             <br>
-                            <textarea id="txt" col="20" row="15" placeholder="Type here.."></textarea>
+                            <textarea id="txt" col="20" row="15" placeholder="Type here.." required></textarea>
                             <br>
-                            <input type="button" value="Submit">
+                            <button type="submit" value="submit">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -31,14 +37,14 @@
                                 <div class="gmap_canvas">
                                 <iframe 
                                     width="500" 
-                                    height="500" 
+                                    height="600" 
                                     id="gmap_canvas" 
                                     src="https://maps.google.com/maps?q=Kyangwali%20Refugee%20settlement&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                                 </iframe><br>
-                                <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style>
+                                <!--<style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style>
                                 <a href="https://www.embedgooglemap.net">how to add google map in wordpress</a>
-                                <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>
+                                <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>-->
                                 </div>
                             </div>
                         </div>
@@ -46,9 +52,15 @@
                     <div class="column-loc">
                         <div class="card-loc">
                             <h3>Contact Us</h3>
-                            <i class="fa fa-map-marker" style="font-size: 50px; color: rgb(233, 107, 34);"></i><P>P.O Box 236, Hoima, Uganda<br>Kyangwali Refugee Settlement</P>
-                            <i class="fa fa-phone-square" style="font-size: 50px; color: rgb(233, 107, 34);"></i><p>+256788266754</p>
-                            <i class="fa fa-envelope" style="font-size: 50px; color: rgb(233, 107, 34);"></i><p class="to-top">happytimesinvestmentsltd@gmail.com</p>
+                            <div class="fa-wrapper">
+                                <i class="fa fa-map-marker" style="font-size: 50px; color: rgb(233, 107, 34);"></i><P>P.O Box 236, Hoima, Uganda<br>Kyangwali Refugee Settlement</P>
+                            </div>
+                            <div class="fa-wrapper">
+                                <i class="fa fa-phone-square" style="font-size: 50px; color: rgb(233, 107, 34);"></i><p>+256788266754 | +256703737369</p>
+                            </div>
+                            <div class="fa-wrapper">
+                                <i class="fa fa-envelope" style="font-size: 50px; color: rgb(233, 107, 34);"></i><p class="to-top">happytimesinvestmentsltd@gmail.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,5 +68,26 @@
         </div>
 
         <%- include('./partials/footer.ejs') %>
+
+        <script>
+            const form = document.getElementById("contact-form");
+
+            const formEvent = form.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                let mail = new FormData(form);
+
+                sendMail(mail);
+            })
+
+            const sendMail = (mail) => {
+                fetch("/send", {
+                    method: "post",
+                    body: mail,
+                }).then((response) => {
+                    return response.json();
+                });
+            };
+        </script>
     </body>
 </html>

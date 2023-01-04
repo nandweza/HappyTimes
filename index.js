@@ -47,7 +47,7 @@ app.use('/admin', appRouter);
 app.use('/allPosts', appRouter);
 app.use('/edit', appRouter);
 app.use('/delete', appRouter);
-app.use('/comments', appRouter);
+app.use('/postcomments', appRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on Port: ${port}`);

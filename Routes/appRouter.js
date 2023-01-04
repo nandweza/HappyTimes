@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Post = require("../models/post");
 const User = require("../models/user");
-const Comment = require("../models/comment");
+const PostComment = require("../models/postComment");
 const Product = require("../models/products");
 const Service = require("../models/services");
 const bcrypt = require("bcrypt");
@@ -10,10 +10,29 @@ const isEmpty = require("is-empty");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
+const nodemailer = require("nodemailer");
+const multiparty = require("multiparty");
 const images = [{image:"../public/images/happy.jpg"}];
 const imageb = [{image:"../public/images/blog.jpg"}]
 
 let posts = [];
+
+const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASS,
+    },
+});
+
+transporter.verify(function (error, success) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log("Server is ready to take our messages");
+    }
+});
 
 const Storage = multer.diskStorage({
     destination: "./public/uploads",
@@ -167,9 +186,9 @@ router.post("/createPost", upload, (req, res) => {
 //get single blog post
 router.get("/posts", async (req, res) => {
     //const blog_id = req.params.id
-    const comments = Comment.find().sort({ createdAt: -1 });
+    const postComments = PostComment.find().sort({ createdAt: -1 });
     posts = await Post.findOne();
-    isEmpty(posts) ? res.redirect('/') : res.render("posts", { posts: posts, comments: comments });
+    isEmpty(posts) ? res.redirect('/') : res.render("posts", { posts: posts, postComments: postComments });
 });
 
 
@@ -206,11 +225,11 @@ router.post('/delete', (req, res) => {
 
 //post comment
 router.post('/postcomments', (req, res) => {
-    const postComments = req.body;
+    const addcomment = req.body;
 
-    const comments = new Comment({ postComments });
+    const postComments = new PostComment({ addcomment });
 
-    comments
+    postComments
         .save()
         .then(() => {
             console.log("comment posted successfully");
@@ -219,10 +238,43 @@ router.post('/postcomments', (req, res) => {
         .catch ((err) => console.log(err));
 });
 
+/* CONTACT PAGE */
+
 //get contact page
 router.get('/contact', (req, res) => {
     res.render('contact');
 });
+
+//post contact
+router.post("/send", (req, res) => {
+    let form = new multiparty.Form();
+    let data = {};
+    form.parse(req, function (err, fields) {
+        console.log(fields);
+        Object.keys(fields).forEach(function (property) {
+            data[property] = fields[property].toString();
+        });
+
+        const mail = {
+            from: data.name,
+            to: process.env.EMAIL,
+            phone: data.phone,
+            subject: data.subject,
+            text: `${data.name} ${data.phone} <${data.email}> \n${data.message}`,
+        };
+
+        transporter.sendMail(mail, (err, data) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send("Something went wrong.");
+            } else {
+                res.status(200).send("Email successfully sent to recipient!");
+            }
+        });
+    });
+});
+
+/* LOGIN PAGE */
 
 //login page
 router.get('/login', (req, res) => {
@@ -264,6 +316,8 @@ router.post("/login", async (req, res) => {
       }
     }
   });
+
+/* ADMIN PAGE */
         
 // admin page
 router.get("/admin", (req, res) => {

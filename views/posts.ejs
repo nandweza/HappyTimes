@@ -29,19 +29,19 @@
                     </div>
                     <div class="comments">
                         <form action="/postcomments" method="POST">
-                            <textarea rows="7" cols="5" id="body" name="postComments"></textarea>
+                            <textarea rows="7" cols="5" id="body" name="addcomment"></textarea>
                             <button class="comment-btn" type="submit">POST COMMENT</button>
                         </form>
                     </div>
                     <div class="Comments-section">
-                        <% comments.forEach((comment) => { %>
+                     
                             <div class="allComments">
-                                <%= comment.comments %>
+                          
                             </div>
                             <span>
-                                <%= comment.createdAt %>
+                          
                             </span>
-                        <% }) %>
+                    
                     </div>
                 
                 </div>

@@ -145,6 +145,7 @@ router.post('/deleteService', (req, res) => {
     });
 });
 
+/* BLOG PAGE */
 //get blog page
 router.get('/blog', async (req, res) => {
     posts = await Post.find().sort({createdAt: -1});
@@ -184,13 +185,15 @@ router.post("/createPost", upload, (req, res) => {
     });
 
 //get single blog post
-router.get("/posts", async (req, res) => {
-    //const blog_id = req.params.id
-    const postComments = PostComment.find().sort({ createdAt: -1 });
-    posts = await Post.findOne();
-    isEmpty(posts) ? res.redirect('/') : res.render("posts", { posts: posts, postComments: postComments });
+router.get("/blog/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const post = await Post.findOne({ _id: id });
+        res.render("singlePost", { post: post }); 
+    } catch (err) {
+        res.status(500).send("Blog not found");
+    }
 });
-
 
 //get edit page
 router.get('/edit', (req, res) => {
@@ -198,15 +201,17 @@ router.get('/edit', (req, res) => {
 })
 
 //update blog
-router.post('/edit', async (req, res) => {
-    try {
-        const updatedPost = await Post.findByIdAndUpdate(req.params.id, {
-            $set: req.body,
-        }, { new: true });
-        res.status(200).json(updatedPost);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+router.post('/edit/:id', (req, res) => {
+    const { id } = req.params;
+    const { blogtitle, blogcontent } = req.body;
+    const { blogimg } = req.file.fieldname;
+
+    Post.updateOne({ _id: id }, { blogtitle, blogimg, blogcontent })
+        .then(() => {
+            console.log("Blog Updated!");
+            res.redirect("/allPosts");
+        })
+        .catch((err) => console.log(err));
 });
 
 //delete blog post

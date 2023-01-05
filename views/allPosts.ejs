@@ -11,7 +11,7 @@
                     <form class="form-bt" action="/delete" method="post">
                     <% posts.forEach ( function (post) { %>
                         <div class="icons-2">
-                            <a href="<%= `/edit` %>" data-toggle="model" value="<%= posts._id %>"><i class="fa fa-edit" style="font-size: 30px;"></i></a>
+                            <a href="/edit/<%= post._id %>" data-toggle="model"><i class="fa fa-edit" style="font-size: 30px;"></i></a>
                             <button name="deleteBtn" value="<%=post._id%>" type="submit" class="danger-btn">
                                 <i class="fa fa-trash" style="font-size: 30px;"></i>
                             </button>

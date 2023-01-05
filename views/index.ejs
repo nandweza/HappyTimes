@@ -5,10 +5,56 @@
         <%- include('./partials/nav.ejs') %>
 
         <div class="home content">
-            <h1>Happy Times Investments Ltd</h1>
-            <p>Elevating your hapiness regularly!</p>
-            <!--<a href="#"><button class="btn home-btn">Go to Shop</button></a>-->
+            <div class="home-upper">
+                <h1>Happy Times Investments Ltd</h1>
+                <p>Elevating your hapiness regularly!</p>
+                <!--<a href="/contact"><button class="btn home-btn">Get in touch</button></a>-->
             </div>
+            <div class="home-mid">
+                <div class="light left">
+                    <i class="fa fa-eye" style="font-size: 50px; color: white;"></i>
+                    <div class="icon-title">
+                        <h5>Our Vision</h5>
+                    </div>
+                    <br>
+                    <span>
+                       Most preferred Quality, Sustainable and Scalable Products 
+                       and Services that address customers’ pain points or needs.
+                    </span>
+                </div>
+                <div class="light mid">
+                    <i class="fa fa-key" style="font-size: 50px; color: white;"></i>
+                    <div class="icon-title">
+                        <h5>Our Values</h5>
+                    </div>
+                    <br>
+                    <span class="keys">
+                        <ul>
+                            <li>Customer centered</li>
+                            <li>Honesty & Transparency</li>
+                            <li>Accountability</li>
+                            <li>Commitment</li>
+                            <li>Team work</li>
+                            <li>Love & Passion Driven</li>
+                            <li>Creativity & Innovation</li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="light right">
+                    <i class="fa fa-bullseye" style="font-size: 50px; color: white;"></i>
+                    <div class="icon-title">
+                        <h5>Our Mission</h5>
+                    </div>
+                    <br>
+                    <span>
+                        To offer a wide range of quality, sustainable and scalable products
+                        and services that are customer centered and address customers’ needs
+                    </span>
+                </div>
+            </div>
+ 
+        </div>
+        <%- include('./partials/home-lower.ejs') %>
 
         <%- include('./partials/footer.ejs') %>
     </body>

@@ -4,16 +4,17 @@
 
     <body>
         <%- include('./partials/admin-navbar.ejs') %>
-        <div class="create-blog-main">
-
-            <div class="posts-container">
-                <div class="posts-card">
-                    <form class="form-bt" action="/delete" method="post">
+        <div class="all-admin-main">
+            <div class="admin-posts">
+                <div class="posts-wrapper">
                     <% posts.forEach ( function (post) { %>
+                    <form class="form-bt" action="/delete" method="post">
                         <div class="icons-2">
-                            <a href="/edit/<%= post._id %>" data-toggle="model"><i class="fa fa-edit" style="font-size: 30px;"></i></a>
+                            <button>
+                                <a href="/edit/<%= post._id %>" data-toggle="model"><i class="fa fa-edit" style="font-size: 30px; color: black;"></i></a>
+                            </button>
                             <button name="deleteBtn" value="<%=post._id%>" type="submit" class="danger-btn">
-                                <i class="fa fa-trash" style="font-size: 30px;"></i>
+                                <i class="fa fa-trash" style="font-size: 30px; color: black;"></i>
                             </button>
                         </div>
                             <div class="title-text">
@@ -35,23 +36,10 @@
                                     <i class="fa fa-share" aria-hidden="true" style="font-size: 20px; color: rgb(233, 107, 34); padding: 5px 25px"></i>
                                 </div>
                             </div>
+                        </form>
                     <% }); %>
-                    </form>
                     </div>
                 </div>
             </div>
-
-            <script>
-                const trashcan = document.querySelector('a.delete');
-                trashcan.addEventListener('click', (e) => {
-                    const endpoint = `/allPosts/${trashcan.dataset.doc}`;
-                    fetch(endpoint, {
-                        method: 'DELETE',
-                    })
-                    .then(response => response.json())
-                    .then(data => window.location.href = data.redirect)
-                    .catch(err => console.log(err));
-                });
-            </script>
     </body>
 </html>

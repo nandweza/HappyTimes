@@ -330,15 +330,18 @@ nav .langs {
     color: white;
     height: 200px;
     margin-top: 50px;
+    opacity: 50%;
 }
 
 .home-mid .mid {
     background-color: var(--main-orange);
     color: white;
     margin-top: 25px;
+    opacity: 50%;
 }
 
 .home-lower {
+    display: inline;
     margin: 50px auto;
     background-color: var(--main-white);
 }
@@ -355,6 +358,11 @@ nav .langs {
     margin: 0 auto;
 }
 
+.home-lower-wrapper .left {
+    margin-top: 30px;
+    margin-right: 50px;
+}
+
 .home-lower-wrapper .lower h3 {
     font-size: 1.8rem;
     font-weight: 600;
@@ -366,14 +374,30 @@ nav .langs {
     font-weight: lighter;
     color: var(--main-black);
     text-align: left;
+    margin-bottom: 0;
 }
 
 .home-lower-btn {
     font-size: 1.2rem;
     width: auto;
     padding: 5px;
+    margin-bottom: 50px;
     border-radius: 25px;
     background-color: var(--main-orange);
+}
+
+.home-lower-wrapper .right {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-top: 60px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px 0;
+}
+
+.home-lower-wrapper .right .lower-img img {
+    width: 120px;
+    height: 120px;
 }
 
 /* .home-lower-wrapper .left, .home-lower-wrapper .right {
@@ -1233,8 +1257,10 @@ footer .ftext {
     text-align: center;
 }
 
-form .line {
+form .admin-form {
     border: none;
+    margin: 0;
+    padding: 0;
 }
 
 form .postTitle {
@@ -1248,6 +1274,13 @@ form #title {
 
 form #body {
     font-size: 1.8rem;
+    text-align: left;
+}
+
+form #blogimg {
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 /* display single blog page */
@@ -1409,7 +1442,7 @@ input[type=email], textarea {
     box-shadow: 0.1px 0.1px 1px 1px var(--main-black);
 }
 
-input[type=tel], textarea {
+input[type=tel], input[type=file], textarea {
     width: 90%;
     padding: 12px;
     border: none;
@@ -1738,6 +1771,7 @@ button:hover {
     text-align: left;
     cursor: pointer;
     outline: none;
+    border-radius: 0;
   }
   
   /* On mouse-over */
@@ -1797,15 +1831,61 @@ button:hover {
     background-color: #f9f9f9;
 }
 
-.icons-2 button {
-    margin-top: 20px;
-    padding: 15px;
-    cursor: pointer;
+/* all blogs by admin*/
+.all-admin-main {
+    margin: 160px;
+    margin-top: 0;
 }
 
-.danger-btn .icons-2 .fa {
+.admin-posts, 
+.admin-products,
+.admin-service,
+.product-service-wrapper {
+    padding: 50px;
+}
+
+.posts-wrapper, 
+.products-wrapper,
+.service-wrapper {
+    background-color: white;
+}
+
+.posts-wrapper form, 
+.products-wrapper form,
+.service-wrapper form {
+    padding: 50px;
+    color: var(--main-black);
+}
+
+.posts-wrapper form .icons-2 button, 
+.products-wrapper form .icons-2 button,
+.service-wrapper form .icons-2 button {
+    margin-top: 20px;
+    padding: 0px;
+    cursor: pointer;
+    border: none;
+    width: 70px;
     padding: 10px;
-    float: right;
+    margin: 2px;
+}
+
+.posts-wrapper form .icons-2 button:hover,
+.products-wrapper form .icons-2 button:hover,
+.service-wrapper form .icons-2 button:hover {
+    background-color: var(--main-orange);
+}
+
+/*add products and service*/
+.product-service-wrapper {
+    margin-top: 0;
+    padding: 20px;
+    padding-left: 100px;
+    color: var(--main-black);
+}
+.add-product-form,
+.add-service-form {
+    background-color: #f1f1f1;
+    padding: 30px;
 }
 
 /* End Admin page*/

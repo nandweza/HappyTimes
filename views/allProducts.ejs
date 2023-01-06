@@ -4,34 +4,35 @@
 
     <body>
         <%- include('./partials/admin-navbar.ejs') %>
-        <div class="create-blog-main">
-
-            <div class="posts-container">
-                <div class="posts-card">
-                    <form class="form-bt" action="/deleteProduct" method="post">
+        <div class="all-admin-main">
+            <div class="admin-products">
+                <div class="products-wrapper">
                     <% products.forEach ( function (product) { %>
+                    <form class="form-bt" action="/deleteProduct" method="post">
                         <div class="icons-2">
-                            <a href="<%= `/edit` %>" data-toggle="model" value="<%= product._id %>"><i class="fa fa-edit" style="font-size: 30px;"></i></a>
+                            <button>
+                                <a href="<%= `/edit` %>" data-toggle="model" value="<%= product._id %>"><i class="fa fa-edit" style="font-size: 30px; color: black;"></i></a>
+                            </button>
                             <button name="deleteBtn" value="<%=product._id%>" type="submit" class="danger-btn">
-                                <i class="fa fa-trash" style="font-size: 30px; color: red;"></i>
+                                <i class="fa fa-trash" style="font-size: 30px; color: black;"></i>
                             </button>
                         </div>
                         <span>
                             <%= product.createdAt.toLocaleDateString() %>
                         </span>
+                        <h4 style="text-align: left; padding-top: 20px;">
+                            <%= product.title %>
+                        </h4>
                         <div>
                             <img src="<%= product.blogimg %>" />
                         </div>
                         <div class="desc">
-                            <h4>
-                                <%= product.title %>
-                            </h4>
                             <p>
                                 <%= product.desc %>
                             </p>
                         </div>
-                    <% }) %>
                     </form>
+                    <% }) %>
                     </div>
                 </div>
             </div>

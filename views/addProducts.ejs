@@ -3,9 +3,9 @@
     <%- include('./partials/head.ejs') %>
     <body>
       <%- include('./partials/admin-navbar.ejs') %>
-        <div class="create-blog-main">
-            <div class="create-blog">
-                <div class="create-blog-form">
+        <div class="all-admin-main">
+            <div class="product-service-wrapper">
+                <div class="add-product-form">
                     <form action="/products" method="POST" enctype="multipart/form-data">
                         <h2>Our Products</h2>
                         <input type="file" id="blogimg" name="blogimg" multiple="multiple" accept="image/*" placeholder="Upload image">
@@ -19,7 +19,8 @@
                         <button type="submit">Add</button>
                     </form>
                 </div>
-                <div class="create-blog-form">
+                <hr>
+                <div class="add-service-form">
                     <form action="/service" method="POST">
                         <h2>Our Services</h2>
                         <input type="text" id="title" name="title" placeholder="add title...">

@@ -4,16 +4,17 @@
 
     <body>
         <%- include('./partials/admin-navbar.ejs') %>
-        <div class="create-blog-main">
-
-            <div class="posts-container">
-                <div class="posts-card">
-                    <form class="form-bt" action="/deleteService" method="post">
+        <div class="all-admin-main">
+            <div class="admin-service">
+                <div class="service-wrapper">
                     <% services.forEach ( function (service) { %>
+                    <form class="form-bt" action="/deleteService" method="post">
                         <div class="icons-2">
-                            <a href="<%= `/edit` %>" data-toggle="model" value="<%= service._id %>"><i class="fa fa-edit" style="font-size: 30px;"></i></a>
+                            <button>
+                                <a href="<%= `/edit` %>" data-toggle="model" value="<%= service._id %>"><i class="fa fa-edit" style="font-size: 30px; color: black;"></i></a>
+                            </button>
                             <button name="deleteBtn" value="<%=service._id%>" type="submit" class="danger-btn">
-                                <i class="fa fa-trash" style="font-size: 30px; color: red;"></i>
+                                <i class="fa fa-trash" style="font-size: 30px; color: black;"></i>
                             </button>
                         </div>
                         <span>
@@ -25,8 +26,8 @@
                         <div class="desc">
                             <%= service.desc %>
                         </div>
-                    <% }) %>
                     </form>
+                    <% }) %>
                     </div>
                 </div>
             </div>

@@ -7,17 +7,17 @@
             <div class="create-blog">
                 <div class="create-blog-form">
                     <form action="/createPost" method="POST" enctype="multipart/form-data">
-                        <input type="text" id="title" class="line postTitle" name="blogtitle" placeholder="Title" required>
+                        <input type="text" id="title" class="admin-form postTitle" name="blogtitle" placeholder="Title" required>
                         <br>
                         <br>
-                        <input type="file" id="blogimg" class="line" name="blogimg" multiple="multiple" accept="image/*" placeholder="Upload image">
+                        <input type="file" id="blogimg" class="admin-form" name="blogimg" multiple="multiple" accept="image/*" placeholder="Upload image">
                         <br>
                         <br>
-                        <textarea id="body" class="line" name="blogcontent" placeholder="Write your story..." cols="100%" rows="15%" required>
+                        <textarea id="body" class="admin-form" name="blogcontent" placeholder="Write your story..." cols="100%" rows="15%" required>
                         </textarea>
                         <br>
                         <br>
-                        <button type="submit">Publish</button>
+                        <button type="submit" class="amin-form">Publish</button>
                     </form>
                 </div>
             </div>

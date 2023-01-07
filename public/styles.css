@@ -195,12 +195,12 @@ nav .langs {
     justify-content: center;
     align-items: left;
     width: 100vw;
-    height: auto;
+    height: 100vh;
     color: var(--main-black);
     background-color: var(--main-white);
     background-image: url('');
     background-size: cover;
-    background-image: url("/images/happy.jpg");
+    background-image: url("/images/brenda.jpg");
 }
 
 .home-upper {

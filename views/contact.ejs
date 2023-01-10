@@ -6,6 +6,7 @@
 
         <div class="contact">
             <div class="contact-main">
+                <%- include('./partials/intro.ejs') %>
                 <h2>Get in touch with us.</h2>
                 <div class="form-row">
                     <div class="form-card">
@@ -16,6 +17,7 @@
                           id="contact-form" 
                           enctype="multipart/form-data"
                         >
+                            <legend>Send us a message</legend>
                             <input type="text" name="name" id="name" placeholder="Name" required>
                             <br>
                             <input type="email" name="email" id="email" placeholder="Email" required>

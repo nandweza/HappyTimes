@@ -6,18 +6,18 @@
     <body>
 
         <%- include('./partials/nav.ejs') %>
-        <div class="posts-container">
+        <div class="container mt-5">
             <div class="posts-card">
-                    <div class="title-text">
+                    <h2 class="title-text">
                         <%= post.blogtitle %>
-                    </div>
-                    <span>
+                    </h2>
+                    <span class="text-muted">
                         <%= post.createdAt %>
                     </span>
                     <div>
-                        <img src="<%= post.blogimg %>" />
+                        <img src="<%= post.blogimg %>" class="img-responsive"/>
                     </div>
-                    <div class="desc">
+                    <div class="desc mt-5">
                         <%= post.blogcontent %>
                     </div>
                     <!--<div class="icons">

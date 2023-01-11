@@ -22,6 +22,7 @@ body {
     margin: 0 auto;
     font-family: 'poppins', serif;
     width: 100vw;
+    scroll-behavior: smooth;
 }
 
 li {
@@ -54,7 +55,7 @@ a:hover {
     z-index: 1;
 }*/
 nav {
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
     /*background-color: var(--main-white);
     /*background: none;*/
     width: 100%;
@@ -149,8 +150,8 @@ nav .langs {
 
 @media (max-width: 900px) {
     .dropdown .logo {
-        margin-top: 10px;
-        margin-left: 10px;
+        margin-top: 30px;
+        margin-left: 40px;
         width: 50px;
     }
     .navbar ul {
@@ -158,17 +159,23 @@ nav .langs {
     }
     .drop-btn {
         float: right;
-        text-align: left;
-        padding: 15px;
+        text-align: center;
+        padding: 0 8px;
         font-size: 30px;
         border: none;
+        border-radius: 0;
         cursor: pointer;
-        width: min-content;
+        width: 50px;
+        background: none;
+        margin-top: 30px;
+        margin-left: 20px;
     }
     .dropdown {
-        background-color: #f1f1f1;
+        width: auto;
+        background: none;
         position: fixed;
-        display: inline-block;
+        display: flex;
+        flex-direction: row-reverse;
     }
     .dropdown-nav {
         right: 0;
@@ -199,14 +206,13 @@ nav .langs {
     height: 100vh;
     color: var(--main-black);
     background-color: var(--main-white);
-    background-image: url('');
     background-size: cover;
     background-image: url("/images/brenda.jpg");
-    opacity: 80%;
+    opacity: 100%;
 }
 
 .home-upper {
-    margin-top: 120px;
+    margin-top: 200px;
 }
 
 .home h1 {
@@ -333,14 +339,14 @@ nav .langs {
     background-color: var(--main-black);
     color: white;
     height: 200px;
-    margin-top: 400px;
+    margin-top: 350px;
    
 }
 
 .home-mid .mid {
     background-color: var(--main-orange);
     color: white;
-    margin-top: 385px;
+    margin-top: 335px;
    
 }
 
@@ -397,7 +403,7 @@ nav .langs {
 
 .home-lower-wrapper .right {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     margin-top: 250px;
     margin-left: 50px;
     margin-right: 50px;
@@ -407,6 +413,25 @@ nav .langs {
 .home-lower-wrapper .right .lower-img img {
     width: 120px;
     height: 120px;
+}
+
+@media (max-width: 1200px) {
+    .home-upper {
+        margin-top: 200px;
+    }
+    .home-mid .left, .home-mid .right {
+        margin-top: 260px;
+    }
+    .home-mid .mid {
+        margin-top: 245px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .home-lower-wrapper .left {
+        margin-right: 0;
+        margin-left: 30px;
+    }
 }
 
 /* .home-lower-wrapper .left, .home-lower-wrapper .right {
@@ -425,10 +450,10 @@ nav .langs {
 
 .intro {
     width: 100vw;
-    height: 75vh;
-    background-image: url("images/blog.jpg");
+    height: 80vh;
+    background-image: url("images/timon-studler-BIk2ANMmNz4-unsplash.jpg");
     background-size: cover;
-    opacity: 30%;
+    opacity: 100%;
 }
 
 /* end */
@@ -544,6 +569,7 @@ footer .ftext {
     padding-bottom: 300px;
     text-align: center;
     font-size: 1.5rem;
+    color: var(--main-black);
 }
 
 .abt-intro {
@@ -551,6 +577,7 @@ footer .ftext {
     margin-left: 350px;
     margin-right: 350px;
     padding-bottom: 70px;
+    text-align: center;
 }
 
 .about-main {

@@ -22,6 +22,7 @@ app.set('views', 'views');
 //middleware and static files
 app.use(express.static('public'));
 app.use(express.static('public/uploads'));
+app.use(express.static('public/styles.css'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));

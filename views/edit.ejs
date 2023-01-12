@@ -4,21 +4,21 @@
     <body>
       <%- include('./partials/admin-navbar.ejs') %>
         <div class="create-blog-main">
-            <div class="create-blog">
+            <div class="create-blog container mt-5">
                 <div class="create-blog-form">
-                    <form action="/edit<%= post._id %>" method="POST" enctype="multipart/form-data">
-                        <input type="text" id="title" value="<%= post.blogtitle %>" class="line postTitle" name="blogtitle" placeholder="Title" required>
+                    <form action="/edit/<%= post._id %>" method="POST" enctype="multipart/form-data">
+                        <input type="text" id="title" value="<%= post.blogtitle %>" class="" name="blogtitle" placeholder="Title" required>
                         <br>
                         <br>
-                        <input type="file" id="blogimg" value="<%= post.blogimg %>" class="line" name="blogimg" multiple="multiple" accept="image/*" placeholder="Upload image">
+                        <input type="file" id="blogimg" value="<%= post.blogimg %>" class="" name="blogimg" multiple="multiple" accept="image/*" placeholder="Upload image">
                         <br>
                         <br>
-                        <textarea id="body" class="line" name="blogcontent" placeholder="Write your story..." cols="100%" rows="15%" required>
+                        <textarea id="body" class="mt-3 form-control" name="blogcontent" placeholder="Write your story..." cols="50" rows="10" required>
                             <%= post.blogcontent %>
                         </textarea>
                         <br>
                         <br>
-                        <button type="submit">Save Changes</button>
+                        <button type="submit" class="mb-5 mt-3 btn btn-md btn-danger">Save Changes</button>
                     </form>
                 </div>
             </div>

@@ -618,7 +618,8 @@ footer .ftext {
     width: 100vw;
 }
 
-.about h1 {
+.about h1,
+.intro-post h1 {
     margin-top: -300px;
     padding-bottom: 200px;
     text-align: center;
@@ -1452,6 +1453,7 @@ form #blogimg {
 }
 
 .title-text {
+    color: var(--main-black);
     font-size: 2.2rem;
     font-weight: 600;
     margin-bottom: 10px;
@@ -2045,6 +2047,7 @@ button:hover {
 
 @media (max-width: 1000px) {
     .abt h1,
+    .intro-post h1,
     .products-main h1 {
         font-size: 2.5rem;
         font-weight: 800;
@@ -2057,6 +2060,7 @@ button:hover {
 
 @media (max-width: 900px) {
     .abt h1,
+    .intro-post h1
     .products-main h1 {
         font-size: 2.5rem;
         font-weight: 800;
@@ -2069,6 +2073,7 @@ button:hover {
 
 @media (max-width: 580px) {
     .about h1,
+    .intro-post h1,
     .contact-main h2,
     .products-main h1 {
         font-size: 2.2rem;
@@ -2083,6 +2088,7 @@ button:hover {
 
 @media (max-width: 350px) {
     .about h1,
+    .intro-post h1,
     .contact-main h2,
     .products-main h1 {
         font-size: 2rem;
@@ -2094,7 +2100,8 @@ button:hover {
 }
 
 @media (max-width: 260px) {
-    .about h1 {
+    .about h1,
+    .intro-post h1 {
         font-size: 1.8rem;
     }
     .abt-intro {

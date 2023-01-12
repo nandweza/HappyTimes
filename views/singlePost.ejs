@@ -5,7 +5,15 @@
 
     <body>
 
-        <%- include('./partials/nav.ejs') %>
+        <%- include('./partials/intro.ejs') %>
+        <div class="intro-post">
+            <h1>
+                <%= post.blogtitle %>
+            </h1>
+            <div class="intro-text abt-intro">
+                Happy Times today...
+            </div>
+        </div>
         <div class="container mt-5">
             <div class="posts-card">
                     <h2 class="title-text">

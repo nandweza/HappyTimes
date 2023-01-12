@@ -196,15 +196,17 @@ router.get("/blog/:id", async (req, res) => {
 });
 
 //get edit page
-router.get('/edit', (req, res) => {
-    res.render('edit');
+router.get('/edit/:id', async (req, res) => {
+    const { id } = req.params;
+    const getData = await Post.findOne({ _id: id });
+    res.render('edit', { post: getData });
 })
 
 //update blog
 router.post('/edit/:id', (req, res) => {
     const { id } = req.params;
     const { blogtitle, blogcontent } = req.body;
-    const { blogimg } = req.file.fieldname;
+    const { blogimg } = req.file.filename;
 
     Post.updateOne({ _id: id }, { blogtitle, blogimg, blogcontent })
         .then(() => {

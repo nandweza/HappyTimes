@@ -211,6 +211,12 @@ nav .langs {
     opacity: 100%;
 }
 
+@media (max-width: 500px) {
+    .home {
+        background-image: url("/images/brooke.jpg");
+    }
+}
+
 .home-upper {
     margin-top: 200px;
 }

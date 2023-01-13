@@ -18,12 +18,16 @@ const imageb = [{image:"../public/images/blog.jpg"}]
 let posts = [];
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
+    service: "gmail",
     auth: {
+        type: 'OAuth2',
         user: process.env.EMAIL,
         pass: process.env.PASS,
+        clientId: process.env.CLIENTID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN
     },
+    secure: true,
 });
 
 transporter.verify(function (error, success) {
@@ -267,7 +271,8 @@ router.post("/send", (req, res) => {
             to: process.env.EMAIL,
             phone: data.phone,
             subject: data.subject,
-            text: `${data.name} ${data.phone} <${data.email}> \n${data.message}`,
+            text: data.text,
+            message: `${data.name} ${data.phone} <${data.email}> \n${data.text}`,
         };
 
         transporter.sendMail(mail, (err, data) => {
@@ -276,6 +281,7 @@ router.post("/send", (req, res) => {
                 res.status(500).send("Something went wrong.");
             } else {
                 res.status(200).send("Email successfully sent to recipient!");
+                res.redirect('/contact');
             }
         });
     });

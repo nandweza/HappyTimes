@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <ul>
         <li><img class="logo" src="/images/logo updated.jpg" alt="logo"></li>
         <li>
@@ -19,7 +19,7 @@
         <li>
             <a href="/login" class="login">Login</a>
         </li>
-        <li>
+        <!--<li>
             <form>
                 <select class="langs" id="langs" name="langs">
                     <option value="Language"><i class="fa-solid fa-language"></i> Language</option>
@@ -28,7 +28,7 @@
                     <option value="Spanish">Spanish</option>
                 </select>
             </form>
-        </li>
+        </li>-->
     </ul>
 </nav>
 
@@ -45,5 +45,14 @@
 </nav>
 
 <script>
-    
+    const navbar = document.querySelector('navbar');
+    //const navbarHeight = navbar.getBoundingClientRect().height;
+
+    window.onscroll = () => {
+        if (window.pageYOffset > 0) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    };
 </script>

@@ -9,6 +9,7 @@ const app = express();
 
 const port = 4000;
 dotenv.config();
+mongoose.set('strictQuery', true);
 
 //mongodb connection
 mongoose.connect(process.env.MONGO_URL)

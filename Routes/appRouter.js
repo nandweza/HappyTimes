@@ -202,7 +202,7 @@ router.get("/blog/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const post = await Post.findOne({ _id: id });
-        res.render("singlePost", { post: post }); 
+        res.render("singlePost", { post: post });
     } catch (err) {
         res.status(500).send("Blog not found");
     }

@@ -30,9 +30,6 @@
                             <button type="submit" value="submit">Submit</button>
                         </form>
                     </div>
-                    <div class="form-content">
-                        <!--<img src="/images/brooke.jpg">-->
-                    </div>
                 </div>
                 <div class="row-loc">
                     <div class="column-map">
@@ -72,26 +69,5 @@
         </div>
 
         <%- include('./partials/footer.ejs') %>
-
-        <script>
-            const form = document.getElementById("contact-form");
-
-            const formEvent = form.addEventListener("submit", (event) => {
-                event.preventDefault();
-
-                let mail = new FormData(form);
-
-                sendMail(mail);
-            })
-
-            const sendMail = (mail) => {
-                fetch("/send", {
-                    method: "post",
-                    body: mail,
-                }).then((response) => {
-                    return response.json();
-                });
-            };
-        </script>
     </body>
 </html>

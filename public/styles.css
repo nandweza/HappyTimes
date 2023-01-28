@@ -1063,10 +1063,11 @@ footer .ftext {
     margin: 0 auto;
 }
 
-.soap > img {
-    width: 180px;
-    height: 100px;
+.soap .soap-image img {
+    width: 250px;
+    height: 300px;
     padding: 0px;
+    margin-bottom: 20px;
 }
 
 .soap .desc {
@@ -1266,7 +1267,7 @@ footer .ftext {
 .fblog {
     width: 350px;
     height: 350px;
-    padding: 2px;
+    padding: 12px;
     background-color: var(--main-white);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     border-radius: 5px;
@@ -1308,8 +1309,8 @@ footer .ftext {
 
 .fblog .img-div img{
     margin: 0 auto;
-    width: 80%;
-    height: 100px;
+    width: 100%;
+    height: 150px;
 }
 
 .fblog .desc {

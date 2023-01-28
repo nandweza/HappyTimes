@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-router.use(express.static(__dirname + "/uploads/s"));
+router.use(express.static(__dirname + "/uploads/"));
 
 const Post = require("../models/post");
 const User = require("../models/user");
@@ -242,21 +242,6 @@ router.post('/delete', (req, res) => {
         }
     });
 });
-
-//post comment
-// router.post('/postcomments', (req, res) => {
-//     const addcomment = req.body;
-
-//     const postComments = new PostComment({ addcomment });
-
-//     postComments
-//         .save()
-//         .then(() => {
-//             console.log("comment posted successfully");
-//             res.redirect('/posts');
-//         })
-//         .catch ((err) => console.log(err));
-// });
 
 /* CONTACT PAGE */
 

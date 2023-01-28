@@ -7,7 +7,7 @@ const appRouter = require('./Routes/appRouter');
 // express app
 const app = express();
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 dotenv.config();
 mongoose.set('strictQuery', true);
 

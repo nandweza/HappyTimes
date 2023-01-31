@@ -5,7 +5,7 @@
         <div class="blog content">
             <%- include('./partials/intro.ejs') %>
             <div class="main">
-                <div class="headtext">
+                <div class="headtext blog-intro">
                     <h2 class="intro-header">Happy Times Blog</h2>
                     <p>Elevating your happiness regularly...</p>
                 </div>
@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="desc">
                                     <p>
-                                        <%= post.blogcontent.substring(0, 200) + "..." %>
+                                        <%= post.blogcontent.substring(0, 180) + "..." %>
                                         <a href="/blog/<%= post._id %>" style="color: red;">Read more.</a>
                                     </p>
                                 </div>

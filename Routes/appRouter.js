@@ -4,7 +4,6 @@ router.use(express.static(__dirname + "/uploads/"));
 
 const Post = require("../models/post");
 const User = require("../models/user");
-const PostComment = require("../models/postComment");
 const Product = require("../models/products");
 const Service = require("../models/services");
 const bcrypt = require("bcrypt");
@@ -20,7 +19,6 @@ const imageb = [{image:"../public/images/blog.jpg"}];
 // const sgMail = require('@sendgrid/mail');
 
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
 
 require('dotenv').config()
 

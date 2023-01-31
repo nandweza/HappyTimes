@@ -5,9 +5,97 @@
     <body>
       <%- include('./partials/admin-navbar.ejs') %>
         <main class="admin">
-            <div class="posts-wrapper">
-              <div id="allPosts" class="allPosts"></div>
-              <div id="newPost" class="newPost"></div>
+            <div class="admin-grid">
+              <div class="admin-home-card">
+                <a href="">
+                  <div class="grid-info">
+                    <i class="fa fa-bar-chart"></i>
+                    <div class="grid-text">
+                    Analysis & Report
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="admin-home-card">
+                <a href="">
+                  <div class="grid-info">
+                    <i class="fa fa-clock-o"></i>
+                    <div class="grid-text">
+                    <%= new Date().getHours(); %>:<%= new Date().getMinutes(); %>:<%= new Date().getSeconds(); %>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="admin-home-card">
+                <a href="/">
+                  <div class="grid-info">
+                    <i class="fa fa-angle-double-right"></i>
+                    <div class="grid-text">
+                    Go to Page
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="admin-home-card">
+                <a href="/allPosts">
+                  <div class="grid-info">
+                    <i class="fa fa-list"></i>
+                    <div class="grid-text">
+                    Blog
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="admin-home-card">
+                <a href="/allProducts">
+                  <div class="grid-info">
+                    <i class="fa fa-product-hunt"></i>
+                    <div class="grid-text">
+                    Products
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="admin-home-card">
+                <a href="/service">
+                  <div class="grid-info">
+                    <i class="fa fa-list"></i>
+                    <div class="grid-text">
+                    services
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="admin-home-card">
+                <a href="/createPost">
+                  <div class="grid-info">
+                    <i class="fa fa-plus"></i>
+                    <div class="grid-text">
+                    Create Blog Post
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="admin-home-card">
+                <a href="/addProducts">
+                  <div class="grid-info">
+                    <i class="fa fa-plus"></i>
+                    <div class="grid-text">
+                    Add new Product
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="admin-home-card">
+                <a href="">
+                  <div class="grid-info">
+                    <i class="fa fa-cog"></i>
+                    <div class="grid-text">
+                    Settings
+                    </div>
+                  </div>
+                </a>
+              </div>
             </div>
         </main>
     </body>

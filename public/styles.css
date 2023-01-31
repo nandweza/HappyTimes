@@ -57,7 +57,7 @@ a:hover {
 .navbar {
     background: none;
     width: 100%;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     transition: all 300ms ease-in-out;
     /*background-color: transparent;*/
@@ -96,16 +96,6 @@ a:hover {
     font-size: 14px;
     margin: 10px;
     margin-right: 50pxs;
-  }
-
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--main-black);
-  }
-  .sticky + .content {
-    padding-top: 60px;
   }
 
 nav .logo {
@@ -1769,6 +1759,8 @@ button:hover {
     /*margin-top: 200px;
     margin-bottom: 150px;*/
     height: 100vh;
+    background-image: url("/images/happy.jpg");
+    background-size: cover;
 }
 
 .login-main form {
@@ -1876,12 +1868,16 @@ button:hover {
 /* Admin page */
 .sidebar {
     color: var(--main-black);
-    width: 160px;
+    width: 220px;
     flex: 1;
     height: calc(100vh - 50px);
     background-color: #f1f1f1;
     position: fixed;
     top: 50px;
+}
+
+.sidebar ul {
+    margin-left: 0;
 }
 
 .sidebar .sidebar-h {
@@ -1900,6 +1896,7 @@ button:hover {
     border-radius: 5px;
     background-color: gray;
     padding: 3px;
+    text-align: center;
 }
 
 .topbar-a {
@@ -1975,17 +1972,42 @@ button:hover {
 }
 
 .admin {
-    margin: 160px;
+    margin: 220px;
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 
-.admin .wrapper {
-    background-color: aliceblue;
+.admin .admin-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 4rem;
+    margin-left: 50px;
 }
 
-.admin .wrapper .card .content {
-    width: 90%;
-    height: 400px;
-    background-color: #f9f9f9;
+.admin .admin-grid .admin-home-card {
+    width: 300px;
+    height: 150px;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+    padding: 15px;
+    color: black;
+}
+
+.grid-info {
+    color: var(--main-black);
+    font-size: 2rem;
+}
+
+.grid-info .fa {
+    font-size: 4rem;
+}
+
+.admin-logo {
+    padding-top: 10px;
+    margin: 20px;
+    width: 50px;
+    height: 50px;
 }
 
 /* all blogs by admin*/
@@ -1999,6 +2021,11 @@ button:hover {
 .admin-service,
 .product-service-wrapper {
     padding: 50px;
+}
+
+.admin-posts img {
+    width: 100%;
+    height: 400px;
 }
 
 .posts-wrapper, 
@@ -2118,9 +2145,6 @@ button:hover {
     .contact-main h2,
     .products-main h1 {
         margin-top: -350px;
-        
-    }
-    .abt-intro {
         
     }
     .intro-text {

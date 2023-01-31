@@ -12,7 +12,7 @@ dotenv.config();
 mongoose.set('strictQuery', true);
 
 //mongodb connection
-mongoose.connect("mongodb+srv://Allan:root@cluster0.nyl3ply.mongodb.net/happytimesDB?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("DB Connection successfully!"))
 .catch((err) => console.log(err));
 

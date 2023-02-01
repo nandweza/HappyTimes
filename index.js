@@ -12,7 +12,7 @@ dotenv.config();
 mongoose.set('strictQuery', true);
 
 //mongodb connection
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect("mongodb+srv://Allan:root@cluster0.nyl3ply.mongodb.net/happytimesDB?retryWrites=true&w=majority")
 .then(() => console.log("DB Connection successfully!"))
 .catch((err) => console.log(err));
 
@@ -49,7 +49,7 @@ app.use('/admin', appRouter);
 app.use('/allPosts', appRouter);
 app.use('/edit', appRouter);
 app.use('/delete', appRouter);
-app.use('/postcomments', appRouter);
+app.use('/register', appRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on Port: ${port}`);

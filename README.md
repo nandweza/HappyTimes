@@ -1,5 +1,7 @@
 # HAPPY TIMES INVESTMENTS LTD
 
+<img src="public/images/ha1.png" width="100%">
+
 ## Description
 This project is a web application for Happy Times Investments Ltd, a company I co-found.
 

@@ -4,57 +4,99 @@
     <body>
         <%- include('./partials/nav.ejs') %>
         
-        <div class="home content">
-            <div class="home-upper">
-                <h1>Happy Times<br> Investments Ltd</h1>
-                <p>Elevating your hapiness regularly</p>
+        <div class="row home">
+            <div class="d-flex justify-content-center align-items-center">
+                <h1 class="text-right">Happy Times Investments Ltd</h1>
+                <!-- <p class="text-right">Elevating your hapiness regularly</p> -->
                 <!--<a href="/contact"><button class="btn home-btn">Get in touch</button></a>-->
             </div>
-            <div class="home-mid">
-                <div class="light left">
-                    <i class="fa fa-eye" style="font-size: 50px; color: white;"></i>
-                    <div class="icon-title">
-                        <h5>Our Vision</h5>
+        </div>
+        <div class="home-mid container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12 mt-5">
+                    <div class="card p-5">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa fa-eye" style="font-size: 50px;"></i>
+                        </div>
+                        <h5 class="text-center">Our Vision</h5>
+                        <p class="text-center">
+                            Most preferred Quality, Sustainable and Scalable Products
+                            and Services that address customers’ pain points or needs.
+                        </p>
                     </div>
-                    <br>
-                    <span>
-                       Most preferred Quality, Sustainable and Scalable Products
-                       and Services that address customers’ pain points or needs.
-                    </span>
                 </div>
-                <div class="light mid">
-                    <i class="fa fa-key" style="font-size: 50px; color: white;"></i>
-                    <div class="icon-title">
-                        <h5>Our Values</h5>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="card p-5">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa fa-key" style="font-size: 50px;"></i>
+                        </div>
+                        <h5 class="text-center">Key Values</h5>
+                        <p class="text-center">
+                            <ul>
+                                <li>
+                                    <i class="fa fa-chevron-right"></i>
+                                    <span>
+                                        Customer centered
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-chevron-right"></i>
+                                    <span>
+                                        Honesty & Transparency
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-chevron-right"></i>
+                                    <span>
+                                        Accountability
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-chevron-right"></i>
+                                    <span>
+                                        Commitment
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-chevron-right"></i>
+                                    <span>
+                                        Team work
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-chevron-right"></i>
+                                    <span>
+                                        Love & Passion Driven
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-chevron-right"></i>
+                                    <span>
+                                        Creativity & Innovation
+                                    </span>
+                                </li>
+                            </ul>
+                        </p>
                     </div>
-                    <br>
-                    <span class="keys">
-                        <ul>
-                            <li>Customer centered</li>
-                            <li>Honesty & Transparency</li>
-                            <li>Accountability</li>
-                            <li>Commitment</li>
-                            <li>Team work</li>
-                            <li>Love & Passion Driven</li>
-                            <li>Creativity & Innovation</li>
-                        </ul>
-                    </span>
                 </div>
-                <div class="light right">
-                    <i class="fa fa-bullseye" style="font-size: 50px; color: white;"></i>
-                    <div class="icon-title">
-                        <h5>Our Mission</h5>
+                <div class="col-lg-4 col-sm-12 mt-5">
+                    <div class="card p-5">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa fa-bullseye" style="font-size: 50px;"></i>
+                        </div>
+                        <h5 class="text-center">Our Mission</h5>
+                        <p class="text-center">
+                            To offer a wide range of quality, sustainable and scalable products
+                            and services that are customer centered and address customers’ needs
+                        </p>
                     </div>
-                    <br>
-                    <span>
-                        To offer a wide range of quality, sustainable and scalable products
-                        and services that are customer centered and address customers’ needs
-                    </span>
                 </div>
             </div>
- 
         </div>
-        <%- include('./partials/home-lower.ejs') %>
+        
+ 
+        
+        <!-- <%- include('./partials/home-lower.ejs') %> -->
 
         <%- include('./partials/footer.ejs') %>
     </body>

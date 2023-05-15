@@ -7,7 +7,7 @@ This project is a web application for Happy Times Investments Ltd.
 It contains the home page, about page and contact page which are static, and then the product page, blog page and admin page that are dynamic
 
 ## Technolgies
-`EJS` `NodeJs` `Express` `MongoDB` `JavaScript`  `CSS` `Multer`
+`EJS` `NodeJs` `Express` `MongoDB` `JavaScript`  `CSS` `Multer` `Bootstrap`
 
 ## Link to the deployed project
 https://happytimes.onrender.com/

@@ -2,16 +2,35 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
     <body>
-        <div class="about">
-            <%- include('./partials/intro.ejs') %>
-            <h1 class="intro-header">About Us...</h1>
-            <div class="intro-text abt-intro">
-                We deal in manufacturing of Fast Moving Consumer Goods (FMCG); 
-                currently in liquid soap production - branded “Happy Wash Liquid Soap”; 
-                and supply of food and non food items. <!--As our philosophy, “ Being a customer 
-                centered company with the aim of addressing customer pain points and needs 
-                through offering quality, sustainable and scalable products”.-->
+        <%- include('./partials/nav.ejs') %>
+        <div id="intro-carousel" class="carousel slide d-flex justify-content-center align-items-center" data-bs-ride="carousel" style="height: 85vh;">
+            <div class="carousel-inner pt-5">
+              <div class="carousel-item active">
+                <div class="text-center">
+                  <h2 class="fs-*">About us ...</h2>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="text-center">
+                  <em class="carousel-em fs-*">
+                    We deal in manufacturing of Fast Moving Consumer Goods (FMCG);<br>
+                    currently in liquid soap production - branded “Happy Wash Liquid Soap”;<br> 
+                    and supply of food and non food items.
+                  </em>
+                </div>
+              </div>
             </div>
+            <button class="carousel-control-prev pt-5" type="button" data-bs-target="#intro-carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next pt-5" type="button" data-bs-target="#intro-carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="about">
             <div class="about-main">
                 <div class="abt">
                     <div class="desc">

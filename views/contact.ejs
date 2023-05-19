@@ -2,11 +2,34 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
     <body>
+        <%- include('./partials/nav.ejs') %>
+        <div id="intro-carousel" class="carousel slide d-flex justify-content-center align-items-center" data-bs-ride="carousel" style="height: 85vh;">
+            <div class="carousel-inner pt-5">
+              <div class="carousel-item active">
+                <div class="text-center">
+                  <h2 class="fs-*">Contact Us...</h2>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="text-center">
+                  <em class="carousel-em fs-*">
+                    Elevating your happiness regularly...
+                  </em>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev pt-5" type="button" data-bs-target="#intro-carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next pt-5" type="button" data-bs-target="#intro-carousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
         <div class="contact">
             <div class="contact-main">
-                <%- include('./partials/intro.ejs') %>
-                <h2 class="intro-header">Contact Us...</h2>
-                <div class="intro-text"></div>
                 <div class="form-row">
                     <div class="form-card">
                         <form 

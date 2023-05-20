@@ -5,61 +5,63 @@
         <%- include('./partials/nav.ejs') %>
         <div id="intro-carousel" class="carousel slide d-flex justify-content-center align-items-center" data-bs-ride="carousel" style="height: 85vh;">
             <div class="carousel-inner pt-5">
-              <div class="carousel-item active">
-                <div class="text-center">
-                  <h2 class="fs-*">Happy Times Blog</h2>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="text-center">
-                  <em class="carousel-em fs-*">
-                    Elevating your happiness regularly...
-                  </em>
-                </div>
-              </div>
+              	<div class="carousel-item active">
+                	<div class="text-center">
+                  		<h2 class="fs-*">Happy Times Blog</h2>
+                	</div>
+              	</div>
+              	<div class="carousel-item">
+                	<div class="text-center">
+                  		<em class="carousel-em fs-*">
+                    		Elevating your happiness regularly...
+                  		</em>
+                	</div>
+              	</div>
             </div>
             <button class="carousel-control-prev pt-5" type="button" data-bs-target="#intro-carousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+              	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              	<span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next pt-5" type="button" data-bs-target="#intro-carousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+              	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+              	<span class="visually-hidden">Next</span>
             </button>
-          </div>
         </div>
-        <div class="blog content">
-            <div class="main">
-                <div class="box featured-blogs">
-                    <% if (posts.length > 0) { %>
-                        <% posts.forEach((post) => { %>
-                            <div class="single-blog fblog">
-                                <span class="date">
-                                    <%= post.createdAt.toLocaleDateString(); %>
-                                </span>
-                                <br>
-                                <br>
-                                <div class="title">
-                                    <%= post.blogtitle %>
-                                </div>
-                                <div class="img-div">
-                                    <img src="<%= post.blogimg %>" class="img-responsive"/>
-                                </div>
-                                <div class="desc">
-                                    <p>
-                                        <%= post.blogcontent.substring(0, 180) + "..." %>
-                                        <a href="/blog/<%= post._id %>" style="color: red;">Read more.</a>
-                                    </p>
-                                </div>
-                            </div>
-                        <% }) %>
-                    <% } else { %>
-                    <div style="margin: auto;">There are no blog posts to display...</div>
-                    <% } %>
-                </div>
-            </div>
-        </div>
-
+		<div class="section-bg" id="blog">
+			<div class="container">
+				<div class="row">
+					<% if (posts.length > 0) { %>
+						<% posts.forEach((post) => { %>
+							<div class="col-lg-12 p-5 border-bottom">
+								<div class="row">
+									<div class="col-lg-6 col-md-12">
+										<div class="img-div">
+											<img src="<%= post.blogimg %>" class="img-responsive" width="400"/>
+										</div>
+										<!-- <span class="date">
+											<%= post.createdAt.toDateString(); %>
+										</span> -->
+									</div>
+									<div class="col-lg-6 col-md-12 pt-5">
+										<h4 class="">
+											<%= post.blogtitle %>
+										</h4>
+										<div class="desc">
+											<p>
+												<%= post.blogcontent.substring(0, 400) + "..." %>
+												<a href="/blog/<%= post._id %>" style="color: red;">Read more.</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						<% }) %>
+					<% } else { %>
+						<h3 class="text-center">There are no blog posts to display...</h3>
+					<% } %>
+				</div>
+			</div>
+		</div>
         <%- include('./partials/footer.ejs') %>
     </body>
 </html>

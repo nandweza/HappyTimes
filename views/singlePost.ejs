@@ -4,33 +4,51 @@
     <%- include('./partials/head.ejs') %>
 
     <body>
-
-        <%- include('./partials/intro.ejs') %>
-        <div class="intro-post">
-            <h1>
-                <%= post.blogtitle %>
-            </h1>
-            <div class="intro-text abt-intro">
-                Happy Times today...
+        <%- include('./partials/nav.ejs') %>
+        <div id="intro-carousel" class="carousel slide d-flex justify-content-center align-items-center" data-bs-ride="carousel" style="height: 85vh;">
+            <div class="carousel-inner pt-5">
+              	<div class="carousel-item active">
+                	<div class="text-center">
+                  		<h3 class="fs-*">
+                            <%= post.blogtitle %>
+                        </h3>
+                	</div>
+              	</div>
+              	<div class="carousel-item">
+                	<div class="text-center">
+                  		<em class="carousel-em fs-*">
+                    		Happy Times today...
+                  		</em>
+                	</div>
+              	</div>
             </div>
+            <button class="carousel-control-prev pt-5" type="button" data-bs-target="#intro-carousel" data-bs-slide="prev">
+              	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              	<span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next pt-5" type="button" data-bs-target="#intro-carousel" data-bs-slide="next">
+              	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+              	<span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="container mt-5">
-            <div class="posts-card">
-                    <h2 class="title-text">
+        <div class="section-bg" id="single-blog">
+            <div class="container mt-5">
+                <div class="row">
+                    <h3 class="">
                         <%= post.blogtitle %>
                     </h2>
+                    <div>
+                        <img src="<%= post.blogimg %>" class="img-responsive" width="100%"/>
+                    </div>
                     <span class="text-muted">
                         <%= post.createdAt %>
                     </span>
-                    <!-- <div>
-                        <img src="<%= post.blogimg %>" class="img-responsive"/>
-                    </div> -->
-                    <div class="desc mt-5">
+                    <p class="desc mt-5">
                         <%= post.blogcontent %>
-                    </div>
+                    </p>
                 </div>
+            </div>
         </div>
-
         <%- include('./partials/footer.ejs') %>
     </body>
 </html>

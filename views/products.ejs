@@ -28,19 +28,38 @@
             </button>
           </div>
         </div>
-        <div class="products">
-            <div class="products-main">
-                <div class="product">
-                    <h2>Our Products</h2>
-                    <div class="abt-rule"></div>
-                    <div class="soap-card">
-                        <!--<h3>Happy Wash Liquid Soap.</h3>-->
-                        <div class="soap-grid">
-                            <% if (products.length > 0) { %>
-                                <% products.forEach((product) => { %>
-                                    <div class="soap">
-                                        <div class="soap-image">
-                                            <img src="<%= product.blogimg %>" alt="litre Liquid Soap" />
+        <div class="section-bg" id="service">
+            <h3 class="text-center pb-5">Our Services</h3>
+            <div class="container">
+                <div class="row">
+                    <% services.forEach((service) => { %>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card p-5">
+                                <div class="">
+                                    <h3>
+                                        <%= service.title %> 
+                                    </h3>
+                                    <p>
+                                        <%= service.desc %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+        <div class="section-bg" id="product">
+            <h3 class="text-center pb-5">Our Products</h3>
+            <div class="container">
+                <div class="row">
+                    <% if (products.length > 0) { %>
+                        <% products.forEach((product) => { %>
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="card p-5">
+                                    <div class="">
+                                        <div class="">
+                                            <img src="<%= product.blogimg %>" alt="litre Liquid Soap" class="img-responsive" width="200"/>
                                         </div>
                                         <div class="desc">
                                             <h4>
@@ -51,32 +70,23 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <% }) %>
-                            <% } else { %>
-                                <h3>There are no products to display...</h3>
-                            <% } %>
-                        </div>
-                    </div>
-                </div>
-                <div class="services">
-                    <h2>Our Services</h2>
-                    <div class="abt-rule"></div>
-                    <div class="service-grid">
-                        <% services.forEach((service) => { %>
-                            <div class="service">
-                                <h3>
-                                    <%= service.title %> 
-                                </h3>
-                                <p>
-                                    <%= service.desc %>
-                                </p>
-                            </div>
+                                </div>
+                             </div>
                         <% }) %>
-                    </div>
+                    <% } else { %>
+                        <h3 class="text-center p-5">There are no products to display...</h3>
+                    <% } %>
                 </div>
             </div>
         </div>
-
+        <div class="contact-us">
+            <h2>Contact Us</h2>
+            <div class="abt-rule"></div>
+            <h3>Happy Times Investments Ltd</h3>
+            <p>P.O Box 236, Hoima, Uganda</p>
+            <p>Tel: +256788266754 | +256703737369</p>
+            <p>Email: happytimesinvestmentsltd@gmail.com</p>
+        </div>
         <%- include('./partials/footer.ejs') %>
     </body>
 </html>

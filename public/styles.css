@@ -73,12 +73,20 @@ span {
 }
 
 .section-bg {
-    padding: 5%;
+    padding: 3%;
     background: linear-gradient(180deg, #ece2e2 0%, white 100%);
 }
 
 .nav-links {
     font-size: 18px;
+}
+
+.btn-adjust {
+    font-size: 4rem;
+}
+
+.btn-adjust span {
+    font-size: 2rem;
 }
 
 #intro-carousel {
@@ -183,8 +191,6 @@ span {
 /* end */
 
 footer {
-    /* display: flex;
-    flex-direction: row-reverse; */
     background-color: var(--main-black);
     color: var(--main-white);
     padding: 2% 5%;
@@ -204,9 +210,34 @@ footer p {
     font-weight: lighter;
 }
 
+.footer-social li a .fa {
+    font-size: 25px;
+}
+
 /* about section */
 .about {
     color: var(--main-black);
+}
+
+.section-heading {
+    background-color: var(--main-orange);
+    color: var(--main-white);
+}
+
+.mgt .btn {
+    background-color: var(--main-orange);
+    border: none;
+    font-weight: 600;
+}
+
+.mgt .btn:hover {
+    background-color: var(--main-black);
+}
+
+.row-two {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 auto;
 }
 
 .position {
@@ -215,14 +246,13 @@ footer p {
 
 .logo-p {
     text-align: center;
-    padding: 20px;
-    margin-bottom: 100px;
     background-color: white;
 }
 
 .logo-p img {
     width: 200px;
     height: 200px;
+    padding: 10px;
 }
 
 .contact-us {
@@ -329,6 +359,15 @@ footer p {
     padding-right: 12%;
 }
 
+@media (max-width: 991px) {
+    .blog-col {
+        padding-bottom: 5%;
+    } 
+    .blog-img img {
+        width: 100%;
+    }
+}
+
 /* create blog section */
 .create-blog-main {
     margin-left: 160px;
@@ -396,6 +435,19 @@ form #blogimg {
 
 #contact p {
     font-size: 1.5rem;
+}
+
+@media (max-width: 443px) {
+    #contact {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    #contact h3 {
+        font-size: 2rem;
+    }
+    #contact p {
+        font-size: 1.2rem;
+    }
 }
 
 input[type=text], [type=email], textarea {
@@ -747,3 +799,135 @@ textarea::placeholder {
 }
 
 /* End Admin page*/
+
+/* media query */
+
+@media (max-width: 991px) {
+    .carousel h2 {
+        font-size: 4.5rem;
+    }
+    
+    .carousel em {
+        font-size: 1.7rem;
+    }
+    .home h1 {
+        font-size: 4.5rem;
+    }
+    
+    .home p {
+        font-size: 2.5rem;
+    }
+    .home-mid {
+        padding: 5% 0;
+    }
+    .hide-img {
+        display: none;
+    }
+    .footer-social li a .fa {
+        font-size: 20px;
+    }
+    .abt-img {
+        width: 100%;
+    }
+    .row-two {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 4rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel h2 {
+        font-size: 3.5rem;
+        font-weight: 600;
+    }
+    
+    .carousel em {
+        font-size: 1.2rem;
+    }
+    .home h1 {
+        font-size: 3.5rem;
+    }
+    
+    .home p {
+        font-size: 2rem;
+    }
+    .home-mid {
+        padding: 5% 10%;
+    }
+    .home-lower .right {
+        display: none;
+    }
+    footer {
+        text-align: center;
+    }
+    .footer-social {
+        text-align: center;
+    }
+    .footer-social li a .fa {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 575px) {
+    .mgt-desc {
+        padding-bottom: 2rem;
+    }
+    .mgt-desc h4 {
+        font-size: 4rem;
+    }
+    .mgt-desc p {
+        font-size: 2rem;
+    }
+    .mgt-desc button {
+        font-size: 2rem;
+    }
+    .board-h5 {
+        font-size: 3rem;
+    }
+    .board-p {
+        font-size: 2rem;
+    }
+    .row-two {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .mgt-desc h4 {
+        font-size: 2rem;
+    }
+    .mgt-desc p {
+        font-size: 1.5rem;
+    }
+    .mgt-desc button {
+        font-size: 1.5rem;
+    }
+    .board-h5 {
+        font-size: 2rem;
+    }
+    .board-p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo {
+        width: 50px;
+    }
+    .btn-adjust {
+        font-size: 2rem;
+    }
+    
+    .btn-adjust span {
+        font-size: 1.8rem;
+    }
+    .home h1 {
+        font-size: 2.2rem;
+    }
+    .home p {
+        font-size: 1.5rem;
+    }
+    .home-mid {
+        padding: 5% 2%;
+    }
+}

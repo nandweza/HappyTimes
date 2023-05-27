@@ -20,7 +20,7 @@ https://happytimes.onrender.com/
 <img src="/public/images/ha4.png" width="100%">
 
 ## Contribution
-If you wish to contribute to this appliaction, submit a pull request, or if you find a bug, or have suggestions, you can open an issue
+If you wish to contribute to this project, submit a pull request, or if you find a bug, or have suggestions, you can open an issue
 
 ## Authors
 + Nandweza Allan [`Github`](https://github.com/nandweza) [`Gmail`](allannandweza@gmail.com) [`Yahoo`](nandwezaallan@yahoo.com) [`twitter`](https://twitter.com/allannandweza) [`LinkedIn`](http://www.linkedin.com/in/nandweza-allan-054a21218)

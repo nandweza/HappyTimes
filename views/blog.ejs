@@ -32,15 +32,12 @@
 				<div class="row">
 					<% if (posts.length > 0) { %>
 						<% posts.forEach((post) => { %>
-							<div class="col-lg-12 p-5 border-bottom">
+							<div class="col-lg-12 p-3 border-bottom blog-col">
 								<div class="row">
 									<div class="col-lg-6 col-md-12">
-										<div class="img-div">
-											<img src="<%= post.blogimg %>" class="img-responsive" width="400"/>
+										<div class="blog-img">
+											<img src="<%= post.blogimg %>" class="img-responsive" width="350"/>
 										</div>
-										<!-- <span class="date">
-											<%= post.createdAt.toDateString(); %>
-										</span> -->
 									</div>
 									<div class="col-lg-6 col-md-12 pt-5">
 										<h4 class="">
@@ -48,7 +45,7 @@
 										</h4>
 										<div class="desc">
 											<p>
-												<%= post.blogcontent.substring(0, 400) + "..." %>
+												<%= post.blogcontent.substring(0, 250) + "..." %>
 												<a href="/blog/<%= post._id %>" style="color: red;">Read more.</a>
 											</p>
 										</div>

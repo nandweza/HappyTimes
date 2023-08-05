@@ -11,39 +11,26 @@ const isEmpty = require("is-empty");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
-//const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer");
 const multiparty = require("multiparty");
 const images = [{image:"../public/images/happy.jpg"}];
 const imageb = [{image:"../public/images/blog.jpg"}];
-
-// const sgMail = require('@sendgrid/mail');
-
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 require('dotenv').config()
 
 let posts = [];
 
-// const transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     auth: {
-//         type: 'OAuth2',
-//         user: process.env.EMAIL,
-//         pass: process.env.PASS,
-//         clientId: process.env.CLIENTID,
-//         clientSecret: process.env.CLIENT_SECRET,
-//         refreshToken: process.env.REFRESH_TOKEN
-//     },
-//     secure: true,
-// });
+const emailConfig = {
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.APP_PASSWORD
+    }
+}
 
-// transporter.verify(function (error, success) {
-//     if (error) {
-//         console.log(error);
-//     } else {
-//         console.log("Server is ready to take our messages");
-//     }
-// });
+const mailTransporter = nodemailer.createTransport(emailConfig);
 
 const Storage = multer.diskStorage({
     destination: "./public/uploads",
@@ -249,53 +236,25 @@ router.get('/contact', (req, res) => {
 });
 
 //post contact
-// router.post('/contact', (req, res) => {
-//     console.log(req);
-//     const msg = {
-//         to: `RECIPIENT_EMAIL`,
-//         from: `SENDER_EMAIL`,
-//         subject: req.body.subject,
-//         text: `Message from ${req.body.email}: \n${req.body.message}`,
-//     }
-//     try {
-//         sgMail.send(msg);
-//         res.send("Message sent successfully!");
-//     } catch (err){
-//         res.send("Message could not be sent");
-//         console.log(err);s
-//     }
-// })
+router.post('/contact', (req, res) => {
+    const { name, email, subject, message } = req.body;
 
-//post contact
-// router.post("/send", (req, res) => {
-//     let form = new multiparty.Form();
-//     let data = {};
-//     form.parse(req, function (err, fields) {
-//         console.log(fields);
-//         Object.keys(fields).forEach(function (property) {
-//             data[property] = fields[property].toString();
-//         });
+    const mailOptions = {
+        from: email,
+        to: process.env.EMAIL,
+        subject: subject,
+        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+    };
 
-//         const mail = {
-//             from: data.name,
-//             to: process.env.EMAIL,
-//             phone: data.phone,
-//             subject: data.subject,
-//             text: data.text,
-//             message: `${data.name} ${data.phone} <${data.email}> \n${data.text}`,
-//         };
-
-//         transporter.sendMail(mail, (err, data) => {
-//             if (err) {
-//                 console.log(err);
-//                 res.status(500).send("Something went wrong.");
-//             } else {
-//                 res.status(200).send("Email successfully sent to recipient!");
-//                 res.redirect('/contact');
-//             }
-//         });
-//     });
-// });
+    mailTransporter.sendMail(mailOptions, (error, info) => {
+        if(error) {
+            console.log(error);
+            res.json({error: 'failed to send message'})
+        } else {
+            res.redirect('/contact');
+        }
+    })
+})
 
 /* LOGIN PAGE */
 
